@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\mngf1\.Rider2019.2\system\extResources" t="IncludeRecursive" />
@@ -103,6 +103,9 @@
         <e p="Scripts" t="Include">
           <e p="ActiveRoomController.cs" t="Include" />
           <e p="KeyboardTestController.cs" t="Include" />
+          <e p="Lighting puzzle" t="Include">
+            <e p="light_Position_check.cs" t="Include" />
+          </e>
           <e p="PlayerTriggerDetection.cs" t="Include" />
           <e p="WorldRedirection.cs" t="Include" />
         </e>
