@@ -1,8 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 public class BallScript : MonoBehaviour
 {
-    public float multiplier = 500;
+    public float velocity;
+    private float multiplier = 10;
     public bool redCondition, blueCondition, greenCondition = false;
+    public bool redActive, blueActive, greenActive = false;
+
+    private void Start()
+    {
+    multiplier = velocity;
+    }
+
     void MoveBall()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -17,33 +26,37 @@ public class BallScript : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
+        Rigidbody rb = GetComponent<Rigidbody>();
         switch (collision.collider.name)
         {
             case ("Red"):
-                multiplier = 0;
-                if (Input.GetKeyDown("space"))
+                if (redCondition == false)
                 {
-                    redCondition = true;
-                    print(redCondition);
+                    multiplier = 0;
+                    rb.velocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                    redActive = true;
                 }
-               break;
+                break;
             case ("Blue"):
-                multiplier = 0;
-                if (Input.GetKeyDown("space"))
+                if (blueCondition == false)
                 {
-                    blueCondition = true;
-                    print(blueCondition);
+                    multiplier = 0;
+                    rb.velocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                    blueActive = true;
                 }
                 break;
             case ("Green"):
-                multiplier = 0;
-                if (Input.GetKeyDown("space"))
+                if (greenCondition == false)
                 {
-                    greenCondition = true;
-                    print(greenCondition);
+                    multiplier = 0;
+                    rb.velocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                    greenActive = true;
                 }
                 break;
-                }
+        }
     }
     void Update()
     {
@@ -51,7 +64,25 @@ public class BallScript : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             print("space key was pressed");
-            multiplier = 500;
+            multiplier = velocity;
+            if (redActive == true)
+            {
+                redCondition = true;
+                redActive = false;
+                print(redCondition);
+            }
+            if (blueActive == true)
+            {
+                blueCondition = true;
+                blueActive = false;
+                print(blueCondition);
+            }
+            if (greenActive == true)
+            {
+                greenCondition = true;
+                greenActive = false;
+                print(greenCondition);
+            }
         }
         if(greenCondition == true && redCondition == true && blueCondition == true)
         {
