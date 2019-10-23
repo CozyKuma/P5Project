@@ -563,13 +563,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991920690}
-  m_LocalRotation: {x: 0.9974043, y: -0.027815187, z: -0.06640586, w: 0.0011995493}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: -0.009996453, y: -0.059999734, z: 16.689999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 180.075, y: 7.6159973, z: 3.1899872}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!114 &1991920693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,8 +584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationLight: {fileID: 1648619093}
   range: 1.5
-  coneAngle: 75
-  coneDiviation: 45
+  maxAngleDiviation: 30
   thisLight: {fileID: 1991920691}
 --- !u!1001 &2063477885
 PrefabInstance:

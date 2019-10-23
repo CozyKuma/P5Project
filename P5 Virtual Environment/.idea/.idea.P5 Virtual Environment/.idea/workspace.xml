@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af3c143e-a1d2-4e84-82a4-09c850aa95a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.P5 Virtual Environment/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/3D models/Splitting_Figure.blend" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/3D models/Splitting_Figure.blend.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Mathias_Scene.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Mathias_Scene.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Lighting puzzle.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.P5 Virtual Environment/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.P5 Virtual Environment/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.P5 Virtual Environment/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.P5 Virtual Environment/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.P5 Virtual Environment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.P5 Virtual Environment/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Lighting puzzle/light_Position_check.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Lighting puzzle/light_Position_check.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +53,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -89,6 +82,11 @@
       <workItem from="1571305336797" duration="209000" />
       <workItem from="1571735945224" duration="8919000" />
       <workItem from="1571747311560" duration="301000" />
+      <workItem from="1571817297206" duration="334000" />
+      <workItem from="1571817671086" duration="231000" />
+      <workItem from="1571817919963" duration="906000" />
+      <workItem from="1571819692430" duration="76000" />
+      <workItem from="1571819815410" duration="5018000" />
     </task>
     <servers />
   </component>
