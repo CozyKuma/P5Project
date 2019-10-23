@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af3c143e-a1d2-4e84-82a4-09c850aa95a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.P5 Virtual Environment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.P5 Virtual Environment/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Lighting puzzle/light_Position_check.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Lighting puzzle/light_Position_check.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,7 +85,7 @@
       <workItem from="1571817671086" duration="231000" />
       <workItem from="1571817919963" duration="906000" />
       <workItem from="1571819692430" duration="76000" />
-      <workItem from="1571819815410" duration="5018000" />
+      <workItem from="1571819815410" duration="5280000" />
     </task>
     <servers />
   </component>
