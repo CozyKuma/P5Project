@@ -9,14 +9,14 @@ public class light_Position_check : MonoBehaviour
     public GameObject destinationLight;
     public float range;
     public float maxAngleDiviation;
+    
     Vector3 destinationLightPosition;
+    
     private Vector3 destinationLightRotation;
     private Vector3 rotationMax;
     private Vector3 rotationMin;
+    
     private bool solved = false;
-
-
-    public Light thisLight;
 
     // Start is called before the first frame update
     void Start()
