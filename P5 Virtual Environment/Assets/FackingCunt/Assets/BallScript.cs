@@ -24,10 +24,11 @@ public class BallScript : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
             rb.AddForce(Vector3.back    * Time.deltaTime * multiplier);
     }
-    void OnCollisionEnter(Collision collision)
+    //void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        switch (collision.collider.name)
+        switch (collision.name)
         {
             case ("Red"):
                 if (redCondition == false)
@@ -69,19 +70,19 @@ public class BallScript : MonoBehaviour
             {
                 redCondition = true;
                 redActive = false;
-                print(redCondition);
+                print(redCondition+" red");
             }
             if (blueActive == true)
             {
                 blueCondition = true;
                 blueActive = false;
-                print(blueCondition);
+                print(blueCondition+" blue");
             }
             if (greenActive == true)
             {
                 greenCondition = true;
                 greenActive = false;
-                print(greenCondition);
+                print(greenCondition+" green");
             }
         }
         if(greenCondition == true && redCondition == true && blueCondition == true)
