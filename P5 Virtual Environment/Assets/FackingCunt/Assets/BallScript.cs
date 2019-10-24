@@ -1,29 +1,21 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 public class BallScript : MonoBehaviour
 {
-    public float velocity;
-    private float multiplier = 10;
-    public bool redCondition, blueCondition, greenCondition = false;
-    public bool redActive, blueActive, greenActive = false;
-
-    private void Start()
-    {
-    multiplier = velocity;
-    }
+    [SerializeField] [Range(1, 10)] public float velocity;
+    public bool redCondition, greenCondition, blueCondition = false;
+    public bool redActive, greenActive, blueActive = false;
     void MoveBall()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         if (Input.GetKey(KeyCode.A))
-            rb.AddForce(Vector3.left    * Time.deltaTime * multiplier);
+            rb.AddForce(Vector3.left     * velocity);
         if (Input.GetKey(KeyCode.D))
-            rb.AddForce(Vector3.right   * Time.deltaTime * multiplier);
+            rb.AddForce(Vector3.right    * velocity);
         if (Input.GetKey(KeyCode.W))
-            rb.AddForce(Vector3.forward * Time.deltaTime * multiplier);
+            rb.AddForce(Vector3.forward  * velocity);
         if (Input.GetKey(KeyCode.S))
-            rb.AddForce(Vector3.back    * Time.deltaTime * multiplier);
+            rb.AddForce(Vector3.back     * velocity);
     }
-    //void OnCollisionEnter(Collision collision)
     void OnTriggerEnter(Collider collision)
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -32,29 +24,32 @@ public class BallScript : MonoBehaviour
             case ("Red"):
                 if (redCondition == false)
                 {
-                    multiplier = 0;
+                    velocity = 0;
                     rb.velocity = Vector3.zero;
                     rb.angularVelocity = Vector3.zero;
                     redActive = true;
                 }
                 break;
+            case ("Green"):
+                if (greenCondition == false)
+                {
+                    velocity = 0;
+                    rb.velocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                    greenActive = true;
+                }
+                break;
             case ("Blue"):
                 if (blueCondition == false)
                 {
-                    multiplier = 0;
+                    velocity = 0;
                     rb.velocity = Vector3.zero;
                     rb.angularVelocity = Vector3.zero;
                     blueActive = true;
                 }
                 break;
-            case ("Green"):
-                if (greenCondition == false)
-                {
-                    multiplier = 0;
-                    rb.velocity = Vector3.zero;
-                    rb.angularVelocity = Vector3.zero;
-                    greenActive = true;
-                }
+            default:
+                Debug.Log("Something went wrong.");
                 break;
         }
     }
@@ -63,36 +58,35 @@ public class BallScript : MonoBehaviour
         MoveBall();
         if (Input.GetKeyDown("space"))
         {
-            print("space key was pressed");
-            multiplier = velocity;
+            print("Space key was pressed.");
+            velocity = 1;
             if (redActive == true)
             {
                 redCondition = true;
                 redActive = false;
-                print(redCondition+" red");
-            }
-            if (blueActive == true)
-            {
-                blueCondition = true;
-                blueActive = false;
-                print(blueCondition+" blue");
+                print(redCondition + " red");
             }
             if (greenActive == true)
             {
                 greenCondition = true;
                 greenActive = false;
-                print(greenCondition+" green");
+                print(greenCondition + " green");
+            }
+            if (blueActive == true)
+            {
+                blueCondition = true;
+                blueActive = false;
+                print(blueCondition + " blue");
             }
         }
-        if(greenCondition == true && redCondition == true && blueCondition == true)
+        if(redCondition == true && greenCondition == true && blueCondition == true)
         {
-            print("ez win");
+            print("3Activations complete.");
         }
     }
-
-    public bool[] GetConditionsRBG()
+    public bool[] GetConditionsRGB()
     {
-        bool[] conditionArray = new bool[3] {redCondition, blueCondition, greenCondition};
+        bool[] conditionArray = new bool[3] {redCondition, greenCondition, blueCondition};
         return conditionArray;
     }
 }
