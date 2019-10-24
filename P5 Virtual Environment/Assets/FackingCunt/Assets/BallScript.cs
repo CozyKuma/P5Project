@@ -11,7 +11,6 @@ public class BallScript : MonoBehaviour
     {
     multiplier = velocity;
     }
-
     void MoveBall()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -89,5 +88,11 @@ public class BallScript : MonoBehaviour
         {
             print("ez win");
         }
+    }
+
+    public bool[] GetConditionsRBG()
+    {
+        bool[] conditionArray = new bool[3] {redCondition, blueCondition, greenCondition};
+        return conditionArray;
     }
 }
