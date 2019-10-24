@@ -18,40 +18,37 @@ public class BallScript : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision)
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
         switch (collision.name)
         {
             case ("Red"):
                 if (redCondition == false)
                 {
-                    velocity = 0;
-                    rb.velocity = Vector3.zero;
-                    rb.angularVelocity = Vector3.zero;
+                    FreezeBall();
                     redActive = true;
                 }
                 break;
             case ("Green"):
                 if (greenCondition == false)
                 {
-                    velocity = 0;
-                    rb.velocity = Vector3.zero;
-                    rb.angularVelocity = Vector3.zero;
+                    FreezeBall();
                     greenActive = true;
                 }
                 break;
             case ("Blue"):
                 if (blueCondition == false)
                 {
-                    velocity = 0;
-                    rb.velocity = Vector3.zero;
-                    rb.angularVelocity = Vector3.zero;
+                    FreezeBall();
                     blueActive = true;
                 }
                 break;
-            default:
-                Debug.Log("Something went wrong.");
-                break;
         }
+    }
+    void FreezeBall()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        velocity = 0;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
     void Update()
     {
