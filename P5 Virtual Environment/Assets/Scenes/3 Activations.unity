@@ -1474,7 +1474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6b6baae050ac641983f16fe11980e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 1
+  speed: 2.38
   redCondition: 0
   greenCondition: 0
   blueCondition: 0
@@ -1896,6 +1896,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BallMaze
       objectReference: {fileID: 0}
+    - target: {fileID: 6422051489644172476, guid: ba7608c47fd956449bf9b99b341fb244,
+        type: 3}
+      propertyPath: m_Name
+      value: Trackerhead
+      objectReference: {fileID: 0}
     - target: {fileID: -8456310609763888802, guid: ba7608c47fd956449bf9b99b341fb244,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1986,11 +1991,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b901615e8e580a1478844f5031793d99, type: 2}
-    - target: {fileID: 6422051489644172476, guid: ba7608c47fd956449bf9b99b341fb244,
-        type: 3}
-      propertyPath: m_Name
-      value: Trackerhead
-      objectReference: {fileID: 0}
     - target: {fileID: 7206612323900675190, guid: ba7608c47fd956449bf9b99b341fb244,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

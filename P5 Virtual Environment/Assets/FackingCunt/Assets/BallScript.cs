@@ -1,12 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEditor;
+using UnityEngine;
 public class BallScript : MonoBehaviour
 {
-    [SerializeField] [Range(1, 10)] public float velocity;
+    [SerializeField] [Range(1, 10)] public float speed;
+    private float velocity;
+    private Rigidbody rb;
     public bool redCondition, greenCondition, blueCondition = false;
     public bool redActive, greenActive, blueActive = false;
+    
+    private void Start()
+    {
+        velocity = speed;
+        rb = GetComponent<Rigidbody>();
+    }
+
     void MoveBall()
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
         if (Input.GetKey(KeyCode.A))
             rb.AddForce(Vector3.left     * velocity);
         if (Input.GetKey(KeyCode.D))
@@ -24,6 +34,7 @@ public class BallScript : MonoBehaviour
                 if (redCondition == false)
                 {
                     FreezeBall();
+                    redCondition = true;
                     redActive = true;
                 }
                 break;
@@ -32,6 +43,7 @@ public class BallScript : MonoBehaviour
                 {
                     FreezeBall();
                     greenActive = true;
+                    greenCondition = true;
                 }
                 break;
             case ("Blue"):
@@ -39,13 +51,18 @@ public class BallScript : MonoBehaviour
                 {
                     FreezeBall();
                     blueActive = true;
+                    blueCondition = true;
                 }
                 break;
         }
     }
+
+    public void Unfreeze()
+    {
+        velocity = speed;
+    }
     void FreezeBall()
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
         velocity = 0;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -53,33 +70,6 @@ public class BallScript : MonoBehaviour
     void Update()
     {
         MoveBall();
-        if (Input.GetKeyDown("space"))
-        {
-            print("Space key was pressed.");
-            velocity = 1;
-            if (redActive == true)
-            {
-                redCondition = true;
-                redActive = false;
-                print(redCondition + " red");
-            }
-            if (greenActive == true)
-            {
-                greenCondition = true;
-                greenActive = false;
-                print(greenCondition + " green");
-            }
-            if (blueActive == true)
-            {
-                blueCondition = true;
-                blueActive = false;
-                print(blueCondition + " blue");
-            }
-        }
-        if(redCondition == true && greenCondition == true && blueCondition == true)
-        {
-            print("3Activations complete.");
-        }
     }
     public bool[] GetConditionsRGB()
     {
