@@ -1,9 +1,20 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 public class ObjectScript3Acti : MonoBehaviour
 {
-    public bool fireSolved, waterSolved, doorOpened = false;
-    public bool redActive, greenActive, blueActive = false;
+    public bool fireSolved, waterSolved, doorOpened;
+    public bool redActive, greenActive, blueActive;
     public BallScript ball;
+    public GameObject door;
+    public float height, doorSpeed;
+    private float counter;
+    
+
+    private void Start()
+    {
+        counter = 0;
+    }
+
     void OnTriggerEnter(Collider collision)
     {
         print("collision");
@@ -41,5 +52,12 @@ public class ObjectScript3Acti : MonoBehaviour
     }
     void Update()
     {
+        if (doorOpened && counter < height)
+        {
+            Vector3 temp = door.transform.position;
+            temp.y += doorSpeed;
+            door.transform.position = temp;
+            counter += doorSpeed;
+        }
     }
 }
