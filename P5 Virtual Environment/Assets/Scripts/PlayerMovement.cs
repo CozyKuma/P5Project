@@ -40,11 +40,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (rigidBody.velocity.magnitude * acceleration > maxSpeed)
             {
-                rigidBody.AddForce(movement * -1);
+                rigidBody.AddForce(movement * Time.deltaTime * 50);
             }
             else
             {
-                rigidBody.AddForce(movement);
+                rigidBody.AddForce(movement * Time.deltaTime * 50);
             }
         }
     }

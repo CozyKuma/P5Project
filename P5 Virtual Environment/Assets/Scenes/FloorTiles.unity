@@ -222,22 +222,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 88490782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
   good: 0
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &125570015
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,22 +333,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 125570015}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &180449993
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,22 +444,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 180449993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 1
+  good: 0
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &182499495
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,22 +555,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 182499495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 1
+  good: 0
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &227912662
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,22 +593,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 227912662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!65 &227912664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -812,22 +777,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 284516958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &296119545
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,22 +815,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 296119545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 1
+  good: 0
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!65 &296119547
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1048,22 +999,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 337083927}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
   good: 0
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &338005405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,22 +1110,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 338005405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
   good: 0
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &398003801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,22 +1221,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 398003801}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
   good: 0
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &445306204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,22 +1332,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 445306204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &453085005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,22 +1474,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 650783031}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 1
+  good: 0
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &743793180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1669,22 +1585,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 743793180}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
   good: 0
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &750544017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,7 +1687,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 750544017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 105dc7cf82363384eb8ca57e2e5b455e, type: 3}
+  m_Script: {fileID: 11500000, guid: c8edaad65dec6e549a688ef7e6df1945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
@@ -1976,22 +1885,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 832544192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
   good: 0
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &916836062
 GameObject:
   m_ObjectHideFlags: 0
@@ -2094,22 +1996,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 916836062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
   good: 1
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &1003003352
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,22 +2107,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1003003352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 1
+  good: 0
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &1120434772
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,22 +2218,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1120434772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &1121474863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,7 +2241,6 @@ GameObject:
   - component: {fileID: 1121474865}
   - component: {fileID: 1121474869}
   - component: {fileID: 1121474864}
-  - component: {fileID: 1121474870}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2377,7 +2257,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1121474863}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086656c083d4ff94aa011acfcc4576d7, type: 3}
+  m_Script: {fileID: 11500000, guid: ca0bc3caa72f24b469ceef842f2ace26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 500
@@ -2449,7 +2329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121474863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 3, z: 1}
+  m_LocalPosition: {x: -1.55, y: 2, z: 6.99}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2471,31 +2351,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1121474870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121474863}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilePressed: 0
-  good: 0
-  tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
 --- !u!1 &1177089849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2598,22 +2453,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1177089849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &1393364490
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,11 +2488,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 1393364490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba221c0fa71252c4fa63bb42245fce34, type: 3}
+  m_Script: {fileID: 11500000, guid: a4bb4ac33924ac541a906f50ca64eebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tileState: 0
-  counter: 0
+  tilesX: 0
+  tilesZ: 0
+  tile: {fileID: 0}
+  tileList:
+  - {fileID: 296119545}
+  - {fileID: 227912662}
+  - {fileID: 1522291799}
+  - {fileID: 1758406571}
+  - {fileID: 2030129144}
+  - {fileID: 650783031}
+  - {fileID: 180449993}
+  - {fileID: 743793180}
+  - {fileID: 1120434772}
+  - {fileID: 445306204}
+  - {fileID: 1409030578}
+  - {fileID: 337083927}
+  - {fileID: 284516958}
+  - {fileID: 125570015}
+  - {fileID: 916836062}
+  - {fileID: 1177089849}
+  - {fileID: 1812296987}
+  - {fileID: 338005405}
+  - {fileID: 1800203753}
+  - {fileID: 832544192}
+  - {fileID: 88490782}
+  - {fileID: 398003801}
+  - {fileID: 182499495}
+  - {fileID: 1003003352}
+  - {fileID: 2025724068}
 --- !u!4 &1393364492
 Transform:
   m_ObjectHideFlags: 0
@@ -2771,7 +2647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409030578}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.06, y: -3.697608, z: 7.277721}
+  m_LocalPosition: {x: -1.12, y: -3.697608, z: 7.277721}
   m_LocalScale: {x: 0.9, y: 0.2, z: 0.9}
   m_Children: []
   m_Father: {fileID: 1393364492}
@@ -2786,22 +2662,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1409030578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 1
+  good: 0
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &1522291799
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,22 +2700,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1522291799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!65 &1522291801
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2949,22 +2811,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1758406571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!65 &1758406573
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3140,22 +2995,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1800203753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
   good: 1
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &1812296987
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,22 +3106,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1812296987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &2025724068
 GameObject:
   m_ObjectHideFlags: 0
@@ -3376,22 +3217,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2025724068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 1
+  good: 0
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!1 &2030129144
 GameObject:
   m_ObjectHideFlags: 0
@@ -3421,22 +3255,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2030129144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f729415a5ba3848938715e1e0a67d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
+  win: 0
+  pressed: 0
   tileController: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
-  cube4: {fileID: 0}
-  cube5: {fileID: 0}
-  cube6: {fileID: 0}
-  cube7: {fileID: 0}
-  cube8: {fileID: 0}
-  cube9: {fileID: 0}
-  TileCounter: 0
+  cubeArr: []
 --- !u!65 &2030129146
 BoxCollider:
   m_ObjectHideFlags: 0
