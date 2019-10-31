@@ -42,10 +42,10 @@ public class Cubes : MonoBehaviour
         print("The tile is pressed: " + pressed);
     }
 
-    void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collision collision)
     {
         if (collision.collider.name == "Player")
-        {
+        {   
 
 
             pressed = true;
@@ -55,17 +55,27 @@ public class Cubes : MonoBehaviour
                 GameObject.Find("/Map").GetComponent<TileRes>().tileState = false;
                 
             }
+            
+        }
+
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.name == "Player")
+        {
+
+
             if (good == true)
             {
-                
+
                 GameObject.Find("/Map").GetComponent<TileRes>().tileState = true;
                 print("Spørg for helvede!");
-                
-                
+
+
 
             }
         }
-
     }
 
     public bool getGood()
