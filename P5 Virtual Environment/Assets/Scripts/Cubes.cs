@@ -49,22 +49,12 @@ public class Cubes : MonoBehaviour
 
 
             pressed = true;
-            transform.position = new Vector3(transform.position.x, pressedPos, transform.position.z);
+            transform.parent.position = new Vector3(transform.position.x, pressedPos, transform.position.z);
             if (good == false)
             {
                 GameObject.Find("/Map").GetComponent<TileRes>().tileState = false;
                 
             }
-            
-        }
-
-    }
-
-    public void OnTriggerStay(Collider other)
-    {
-        if (other.name == "Player")
-        {
-
 
             if (good == true)
             {
@@ -75,7 +65,9 @@ public class Cubes : MonoBehaviour
 
 
             }
+
         }
+
     }
 
     public bool getGood()
