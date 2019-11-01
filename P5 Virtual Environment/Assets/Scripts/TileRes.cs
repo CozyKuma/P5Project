@@ -37,7 +37,7 @@ public class TileRes : MonoBehaviour
         print("GoodTiles " + goodTiles.Count);
         if (goodTiles.Count == goodPressedTiles.Count)
         {
-            win();
+            //win();
         }
     }
     void win()
