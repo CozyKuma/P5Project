@@ -40,6 +40,7 @@ public class light_Position_check : MonoBehaviour
         if (angleDifX <= maxAngleDiviation && angleDifY <= maxAngleDiviation && Vector3.Distance(playerLightPosition, destinationLightPosition)<=range)
         {
             solved = true;
+            print(solved);
         }
         else
         {
