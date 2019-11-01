@@ -275,7 +275,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 137217949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a73b9084bbf6348aabb6775574beca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 320884717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a73b9084bbf6348aabb6775574beca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 611614039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a73b9084bbf6348aabb6775574beca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
@@ -1596,7 +1596,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 788129719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a73b9084bbf6348aabb6775574beca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
@@ -1707,7 +1707,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 788272715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a73b9084bbf6348aabb6775574beca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
@@ -1909,7 +1909,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1006845893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a73b9084bbf6348aabb6775574beca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
@@ -2417,25 +2417,10 @@ MonoBehaviour:
   - {fileID: 1758406571}
   - {fileID: 2030129144}
   - {fileID: 650783031}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 445306204}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 125570015}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 338005405}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 398003801}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &1393364492
 Transform:
   m_ObjectHideFlags: 0
@@ -2615,7 +2600,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1611151198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a73b9084bbf6348aabb6775574beca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
@@ -2961,7 +2946,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1900516380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a73b9084bbf6348aabb6775574beca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
@@ -3072,7 +3057,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1912276153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a73b9084bbf6348aabb6775574beca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
@@ -3183,7 +3168,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2001483253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9153ee7c4a1e1b341b34f8f86d760844, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a73b9084bbf6348aabb6775574beca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
