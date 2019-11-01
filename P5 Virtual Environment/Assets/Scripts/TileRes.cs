@@ -14,6 +14,7 @@ public class TileRes : MonoBehaviour
     private List<GameObject> badTiles = new List<GameObject>();
     private List<GameObject> goodPressedTiles = new List<GameObject>();
     
+    
 
 
 
@@ -34,19 +35,23 @@ public class TileRes : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    // Update is called once per frame1
     void Update()
     {
         foreach (GameObject obj in goodTiles)
         {
             Cubes tempCube = obj.GetComponent<Cubes>();
             bool pressedFromChild = tempCube.pressed;
+            Debug.Log("bitch" + tempCube.good);
+            Debug.Log("bbb" + pressedFromChild);
             if (pressedFromChild && !goodPressedTiles.Contains(obj))
             {
+                print("Yeah Bitches!");
                 goodPressedTiles.Add(obj);
             }
         }
-
+        print("GoodPressedTiles " + goodPressedTiles);
+        print("GoodTiles " + goodTiles.Count);
         if (goodTiles.Count == goodPressedTiles.Count)
         {
             win();

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cubes : MonoBehaviour
+public class CubesChild : MonoBehaviour
 {
     public int tilePressed = 0;
     public bool good;
