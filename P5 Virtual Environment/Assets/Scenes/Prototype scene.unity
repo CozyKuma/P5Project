@@ -438,6 +438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 267208827}
   - component: {fileID: 267208828}
+  - component: {fileID: 267208829}
   m_Layer: 0
   m_Name: Corridors
   m_TagString: Untagged
@@ -468,7 +469,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267208826}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da520fa4969f0e445b39ff1dad3aa75d, type: 3}
   m_Name: 
@@ -478,9 +479,30 @@ MonoBehaviour:
   exitQuad: 0
   corrPrefab: {fileID: 6790721068961863017, guid: 5100689f89b80ef47810a8e1865c68f1,
     type: 3}
-  QuadrantCalculator: {fileID: 360936855}
-  WayPointSystem: {fileID: 0}
+  WayPointSystem: {fileID: 660515804}
   physObjQuadrant: 0
+  minXScale: 1
+  minYScale: 0.5
+  minZScale: 1
+--- !u!114 &267208829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267208826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706422561b7270342aac2631783be27e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entranceQuad: 4
+  exitQuad: 2
+  physObjQuad: 0
+  serializeHelperPrefab: {fileID: 6790721068961863017, guid: 5100689f89b80ef47810a8e1865c68f1,
+    type: 3}
+  QuadrantCalculator: {fileID: 360936855}
+  WayPointSystem: {fileID: 660515804}
   minXScale: 1
   minYScale: 0.5
   minZScale: 1
@@ -1904,7 +1926,7 @@ Transform:
   - {fileID: 1648292607}
   - {fileID: 1761713132}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &683243564
 GameObject:
@@ -6452,92 +6474,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829092560}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1879124030
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1879124032}
-  - component: {fileID: 1879124031}
-  m_Layer: 0
-  m_Name: A*
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1879124031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879124030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  data:
-    dataString: UEsDBBQAAAgIAAAIIey5bVNyPwIAAOkEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGFVE1T2zAQ/SsZnUsnhhKgt9ZA6IGPadrh4ssirWNNZMmjD5LA5L93JSuxCYee4rz3dvfth/3OpHYdcm/s3EpxbwSy7xMWn9mXyUDe4QaWRi/kG+41z1L4JoogaX6Dl4bwIoY506K3kv/QSxXFUwKDlrWx7Y1YYmmcdwTXoBwSZY2P0Zqg9wnb5IBt/n2Lv5MdPXHUHu3/VEFzBW2HIrodxLMsniWRpi4yHx1zo5R02QLz2y61WELnAjVAAiGBWkrFo75BuWw8/TkdBz/WtUOfDVnYXktLk+mzsp+mH1cLbtW7egUV8GC7T3n/iT0pEl1b097tqxbTWME3kq9+w5aD86NpjuHrj7aDXoNawYvC5wb1g5lbE7Qg0tsQQ4PD0+tRqkNnZYN8Neh6r0dg6D5vphg2s0u9b0ol25eIfP3WAwtl0rSvYgxa2ssvMpzuweVMhEYTfx3+geX4cDJxK63zROWCOrp7McFGKbulhzh3HnxprMaEZssdalB++0RZ/PH+jrhR1SPmFuIbkmtnbn/4RyEJHvTT6RH1ZNaHXbnGrO/RNY/BK6lxMB2JBxpTabTuz2s8kn3YItga+NjDMkjx8bTYxeU5L65mV7W4PDsDnJ3MAOC8viyguLgQYlqwdHtSU6OgnnqneT60NT2Y0nRn+y/HZG6hS7cuLKzn8q01o5lLXZsFt4j6sc9wcI6WitA7KW6EpAkt0Hup077Ze8WU4SsU1SFRlVq92XgL1ZClYp18NT4iFSvT96JiO7b7B1BLAwQUAAAICAAACCHstgVlAWwAAAB3AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9Kz0FFQSi9KLMgoBgoYgjilmSkgdrSSuYVpsqGlmWVaioWxcWKqma5ZYmKiaZqFYaKhuXlKioGhUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIey5bVNyPwIAAOkEAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIey2BWUBbAAAAHcAAAAJACQAAAAAAAAAAAAAAIwCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAQwMAAAAA
-    upgradeData: 
-    file_cachedStartup: {fileID: 0}
-    data_cachedStartup: 
-    cacheStartup: 0
-  showNavGraphs: 1
-  showUnwalkableNodes: 1
-  debugMode: 0
-  debugFloor: 0
-  debugRoof: 1
-  manualDebugFloorRoof: 0
-  showSearchTree: 0
-  unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
-  maxNearestNodeDistance: 100
-  scanOnStartup: 1
-  fullGetNearestSearch: 0
-  prioritizeGraphs: 0
-  prioritizeGraphsLimit: 1
-  colorSettings:
-    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
-    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
-    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
-    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
-    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
-    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
-    _AreaColors:
-    - {r: 0, g: 0, b: 0, a: 0}
-  tagNames: []
-  heuristic: 0
-  heuristicScale: 0.5
-  threadCount: 1
-  maxFrameTime: 10
-  batchGraphUpdates: 0
-  graphUpdateBatchingInterval: 0.2
-  euclideanEmbedding:
-    mode: 0
-    seed: 0
-    pivotPointRoot: {fileID: 0}
-    spreadOutCount: 1
-  showGraphs: 1
---- !u!4 &1879124032
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879124030}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1933845128
 GameObject:
   m_ObjectHideFlags: 0
@@ -6624,7 +6560,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933845128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0.5, z: -1}
+  m_LocalPosition: {x: 1, y: 0.5, z: 1}
   m_LocalScale: {x: 0.48753, y: 0.48753, z: 0.48753}
   m_Children: []
   m_Father: {fileID: 0}

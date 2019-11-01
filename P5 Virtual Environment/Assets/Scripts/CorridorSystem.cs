@@ -17,18 +17,17 @@ public class CorridorSystem : MonoBehaviour
     public float minYScale = 0.5f;
     public float minZScale = 1f;
 
-    [SerializeField]
     public class Corridor
     {
         public enum corridorType { DEFAULT = 0, EXIT, ENTRANCE, SIDE, BRIDGE }
         public enum lastPosition { NONE, LEFT, RIGHT }
         private static lastPosition lastCorrPosition = lastPosition.NONE;
         public static Vector3 lastPosVector;
-        //public static List<Vector3> pathVectors = new List<Vector3>();
 
         public corridorType type;
         public Vector3 size;
         public static Vector3 minSize;
+        public bool isActive = true;
         public Vector3 center;
         public static List<Corridor> listOfCorridors = new List<Corridor>();
         public Vector3 startPoint;
@@ -39,7 +38,6 @@ public class CorridorSystem : MonoBehaviour
         public Corridor(GameObject parent, corridorType corrType = corridorType.DEFAULT)
         {
             this.parentObject = parent;
-            //FindChildrenObjects();
             this.type = corrType;
             this.CalculateCorridor();
             listOfCorridors.Add(this);
@@ -67,17 +65,18 @@ public class CorridorSystem : MonoBehaviour
 
         private void CalculateCorridor()
         {
-            if (type == corridorType.BRIDGE)
+            /*if (type == corridorType.BRIDGE)
             {
                 var bridgePositions = CalculateBridge();
                 startPoint = bridgePositions.Item1;
                 endPoint = bridgePositions.Item2;
-            } else if (type == corridorType.SIDE)
+            }*/
+            /*else if (type == corridorType.SIDE)
             {
                 var sidePositions = CalculateSide();
                 startPoint = sidePositions.Item1;
                 endPoint = sidePositions.Item2;
-            }
+            }*/
 
             center = Vector3.Lerp(startPoint, endPoint, 0.5f);
             Vector3 tempSize = new Vector3();
@@ -85,7 +84,8 @@ public class CorridorSystem : MonoBehaviour
             if (endPoint.x - startPoint.x == 0)
             {
                 tempSize.x = Corridor.minSize.x;
-            } else
+            }
+            else
             {
                 tempSize.x = endPoint.x - startPoint.x;
                 if (tempSize.x < 0)
@@ -103,13 +103,15 @@ public class CorridorSystem : MonoBehaviour
             if (endPoint.z - startPoint.z == 0)
             {
                 tempSize.z = Corridor.minSize.z;
-            } else
+            }
+            else
             {
                 tempSize.z = endPoint.z - startPoint.z;
                 if (tempSize.z < 0)
                 {
                     tempSize.z -= 1.0f;
-                } else if (tempSize.z > 0)
+                }
+                else if (tempSize.z > 0)
                 {
                     tempSize.z += 1.0f;
                 }
@@ -123,15 +125,28 @@ public class CorridorSystem : MonoBehaviour
             Vector3[] bridgeWaypoints = new Vector3[2];
             int tempQuad = 0;
             int physObjQuad = QuadrantCalc.Quadrant.WithinWhichQuadrant(QuadrantCalculator.physObject);
-            if (physObjQuad == 1 || physObjQuad == 2)
+            if (Corridor.getLastPosition() == Corridor.lastPosition.RIGHT)
             {
-                bridgeWaypoints[0] = GetQuadrantBasedPosition(4, "vertical");
-                tempQuad = 4;
-            }
-            else if (physObjQuad == 3 || physObjQuad == 4)
+                if (physObjQuad == 1 || physObjQuad == 2)
+                {
+                    bridgeWaypoints[0] = GetQuadrantBasedPosition(4, "vertical");
+                    tempQuad = 4;
+                }
+                else if (physObjQuad == 3 || physObjQuad == 4)
+                {
+                    bridgeWaypoints[0] = GetQuadrantBasedPosition(1, "vertical");
+                    tempQuad = 1;
+                }
+            } else if (Corridor.getLastPosition() == Corridor.lastPosition.LEFT)
             {
-                bridgeWaypoints[0] = GetQuadrantBasedPosition(1, "vertical");
-                tempQuad = 1;
+                if (physObjQuad == 1 || physObjQuad == 2)
+                {
+                    bridgeWaypoints[0] = GetQuadrantBasedPosition(3, "vertical");
+                    tempQuad = 3;
+                } else if (physObjQuad == 3 || physObjQuad == 4)
+                {
+                    bridgeWaypoints[0] = GetQuadrantBasedPosition(2, "vertical");
+                }
             }
             bridgeWaypoints[1] = GetQuadrantBasedPosition(QuadrantCalc.Quadrant.FindNeighbour(tempQuad, "horizontal"), "vertical");
 
@@ -141,54 +156,76 @@ public class CorridorSystem : MonoBehaviour
         public static (Vector3, Vector3) CalculateSide()
         {
             Vector3[] sideWaypoints = new Vector3[2];
-            int tempQuad = 0;
             int physObjQuad = QuadrantCalc.Quadrant.WithinWhichQuadrant(QuadrantCalculator.physObject);
             sideWaypoints[0] = Corridor.lastPosVector;
-            
             if (Corridor.getLastPosition() == Corridor.lastPosition.RIGHT)
             {
-                if (physObjQuad == 1 || physObjQuad == 2)
+                if (Corridor.lastPosVector == GetQuadrantBasedCorner(1))
                 {
-                    tempQuad = 4;
-                } else if (physObjQuad == 3 || physObjQuad == 4)
-                {
-                    tempQuad = 1;
+                    if (physObjQuad == 1 || physObjQuad == 2)
+                    {
+                        sideWaypoints[1] = GetQuadrantBasedPosition(4, "vertical");
+                    }
+                    else
+                    {
+                        sideWaypoints[1] = GetQuadrantBasedPosition(1, "vertical");
+                    }
                 }
-            } else if (Corridor.getLastPosition() == Corridor.lastPosition.LEFT)
-            {
-                if (physObjQuad == 1 || physObjQuad == 2)
+                else if (Corridor.lastPosVector == GetQuadrantBasedCorner(4))
                 {
-                    tempQuad = 3;
-                } else if (physObjQuad == 3 || physObjQuad == 4)
+                    if (physObjQuad == 1 || physObjQuad == 2)
+                    {
+                        sideWaypoints[1] = GetQuadrantBasedPosition(4, "vertical");
+                    }
+                    else
+                    {
+                        sideWaypoints[1] = GetQuadrantBasedPosition(1, "vertical");
+                    }
+                }
+                else if (Corridor.lastPosVector == GetQuadrantBasedPosition(4, "vertical"))
                 {
-                    tempQuad = 2;
+                    sideWaypoints[1] = GetQuadrantBasedCorner(1);
+                }
+                else if (Corridor.lastPosVector == GetQuadrantBasedPosition(1, "vertical"))
+                {
+                    sideWaypoints[1] = GetQuadrantBasedCorner(4);
                 }
             }
-
-            sideWaypoints[1] = GetQuadrantBasedPosition(tempQuad, "vertical");
-
+            else if (Corridor.getLastPosition() == Corridor.lastPosition.LEFT)
+            {
+                if (Corridor.lastPosVector == GetQuadrantBasedCorner(2))
+                {
+                    if (physObjQuad == 1 || physObjQuad == 2)
+                    {
+                        sideWaypoints[1] = GetQuadrantBasedPosition(3, "vertical");
+                    }
+                    else
+                    {
+                        sideWaypoints[1] = GetQuadrantBasedPosition(2, "vertical");
+                    }
+                }
+                else if (Corridor.lastPosVector == GetQuadrantBasedCorner(3))
+                {
+                    if (physObjQuad == 1 || physObjQuad == 2)
+                    {
+                        sideWaypoints[1] = GetQuadrantBasedPosition(3, "vertical");
+                    }
+                    else
+                    {
+                        sideWaypoints[1] = GetQuadrantBasedPosition(2, "vertical");
+                    }
+                }
+                else if (Corridor.lastPosVector == GetQuadrantBasedPosition(3, "vertical"))
+                {
+                    sideWaypoints[1] = GetQuadrantBasedCorner(2);
+                }
+                else if (Corridor.lastPosVector == GetQuadrantBasedPosition(2, "vertical"))
+                {
+                    sideWaypoints[1] = GetQuadrantBasedCorner(3);
+                }
+            }
             return (sideWaypoints[0], sideWaypoints[1]);
         }
-
-        /*private void FindChildrenObjects()
-        {
-            Transform parentComponent = parentObject.GetComponent<Transform>();
-            Transform[] allChildren;
-            allChildren = parentComponent.GetComponentsInChildren<Transform>(true);
-            foreach (Transform child in allChildren)
-            {
-                if (child != allChildren[0])
-                {
-                    if (child.gameObject.name.Contains("Mid"))
-                    {
-                        endPoint = child.gameObject;
-                    }
-                    else if (child.gameObject.name.Contains("Corner")) {
-                        startPoint = child.gameObject;
-                    }
-                }
-            }
-        }*/
 
         public void ReCalculatePrefab()
         {
@@ -203,7 +240,6 @@ public class CorridorSystem : MonoBehaviour
             {
                 corr.ReCalculatePrefab();
             }
-            //Debug.Log("Prefabs Recalculated");
         }
 
         public static lastPosition getLastPosition()
@@ -216,22 +252,24 @@ public class CorridorSystem : MonoBehaviour
             lastCorrPosition = lastPos;
         }
 
-        public static void CreateCorridorBetween(GameObject start, GameObject end, GameObject prefab, corridorType type = corridorType.DEFAULT)
+        public static void CreateCorridorBetween(GameObject start, GameObject end, GameObject prefab, corridorType type)
         {
             Corridor tempCorr = new Corridor(start, end, type);
             GameObject tempObject = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
             tempObject.transform.localScale = tempCorr.size;
             tempObject.transform.position = tempCorr.center;
             tempCorr.prefabObject = tempObject;
+            Corridor.lastPosVector = tempCorr.endPoint;
         }
 
-        public static void CreateCorridorBetween(Vector3 start, Vector3 end, GameObject prefab, corridorType type = corridorType.DEFAULT)
+        public static void CreateCorridorBetween(Vector3 start, Vector3 end, GameObject prefab, corridorType type)
         {
             Corridor tempCorr = new Corridor(start, end, type);
             GameObject tempObject = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
             tempObject.transform.localScale = tempCorr.size;
             tempObject.transform.position = tempCorr.center;
             tempCorr.prefabObject = tempObject;
+            Corridor.lastPosVector = tempCorr.endPoint;
         }
 
         public static void DestroyAllOfType(corridorType type)
@@ -254,6 +292,26 @@ public class CorridorSystem : MonoBehaviour
 
             instancesToRemove.Clear();
         }
+
+        public static void ChangeActiveAllOfType(corridorType type)
+        {
+            foreach (Corridor corr in Corridor.listOfCorridors)
+            {
+                if (corr.type == type)
+                {
+                    if (corr.isActive)
+                    {
+                        corr.prefabObject.SetActive(false);
+                        corr.isActive = false;
+                    }
+                    else if (!corr.isActive)
+                    {
+                        corr.prefabObject.SetActive(true);
+                        corr.isActive = true;
+                    }
+                }
+            }
+        }
     }
 
     // Start is called before the first frame update
@@ -265,7 +323,6 @@ public class CorridorSystem : MonoBehaviour
 
         GenerateInitialSetup();
 
-        //Corridor.ReCalculateAllPrefabs();
         Debug.Log("Corridor Script - Start Done!");
     }
 
@@ -276,33 +333,23 @@ public class CorridorSystem : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             Corridor.ReCalculateAllPrefabs();
-        } else if (Input.GetKeyDown("b"))
+        }
+        else if (Input.GetKeyDown("b"))
         {
             GenerateBridge();
-        } else if (Input.GetKeyDown("n"))
+        }
+        else if (Input.GetKeyDown("n"))
         {
             GenerateEntrance();
         }
-        ChangeRoomTest();   
-    }
-
-    public void ChangeRoomTest()
-    {
-        if (Input.GetKeyDown("1"))
+        else if (Input.GetKeyDown("m"))
         {
-            entrancePosition = 1;
-        }
-        else if (Input.GetKeyDown("2"))
+            GenerateExit();
+        } else if (Input.GetKeyDown("c"))
         {
-            entrancePosition = 2;
-        }
-        else if (Input.GetKeyDown("3"))
-        {
-            entrancePosition = 3;
-        }
-        else if (Input.GetKeyDown("4"))
-        {
-            entrancePosition = 4;
+            Corridor.DestroyAllOfType(Corridor.corridorType.BRIDGE);
+            Corridor.DestroyAllOfType(Corridor.corridorType.DEFAULT);
+            Corridor.DestroyAllOfType(Corridor.corridorType.SIDE);
         }
     }
 
@@ -317,41 +364,32 @@ public class CorridorSystem : MonoBehaviour
     {
         exitQuad = QuadrantCalc.Quadrant.FindOpposite(entrancePosition); // Place exit at the diagonal opposite of the entrance.
         Corridor.CreateCorridorBetween(GetQuadrantBasedPosition(exitQuad), GetQuadrantBasedCorner(QuadrantCalc.Quadrant.FindNeighbour(exitQuad)), corrPrefab, Corridor.corridorType.EXIT);
+        Debug.Log(Corridor.getLastPosition());
     }
 
     public void GenerateBridge()
     {
         Corridor.DestroyAllOfType(Corridor.corridorType.ENTRANCE);
-        var bridgePoints = Corridor.CalculateBridge();
+        Corridor.DestroyAllOfType(Corridor.corridorType.SIDE);
+        Corridor.DestroyAllOfType(Corridor.corridorType.BRIDGE);
+        Corridor.DestroyAllOfType(Corridor.corridorType.DEFAULT);
         var sidePoints = Corridor.CalculateSide();
-        Corridor.CreateCorridorBetween(GetQuadrantBasedCorner(QuadrantCalc.Quadrant.FindNeighbour(exitQuad)), bridgePoints.Item1, corrPrefab, Corridor.corridorType.SIDE);
-        Corridor.CreateCorridorBetween(bridgePoints.Item1, bridgePoints.Item2, corrPrefab, Corridor.corridorType.BRIDGE);
+        Corridor.CreateCorridorBetween(sidePoints.Item1, sidePoints.Item2, corrPrefab, Corridor.corridorType.SIDE);
+        var bridgePoints = Corridor.CalculateBridge();
+        Corridor.CreateCorridorBetween(Corridor.lastPosVector, bridgePoints.Item2, corrPrefab, Corridor.corridorType.BRIDGE);
+        Debug.Log(Corridor.lastPosVector);
+        Debug.Log(Corridor.getLastPosition());
     }
 
     public void GenerateEntrance()
     {
         int objQuadrantInt = QuadrantCalc.Quadrant.WithinWhichQuadrant(QuadrantCalculator.physObject);
-        if (Corridor.getLastPosition() == Corridor.lastPosition.LEFT)
-        {
-            if (objQuadrantInt == 3 || objQuadrantInt == 4)
-            {
-                Corridor.CreateCorridorBetween(Corridor.lastPosVector, GetQuadrantBasedCorner(3), corrPrefab, Corridor.corridorType.DEFAULT);
-            } else if (objQuadrantInt == 1 || objQuadrantInt == 2)
-            {
-                Corridor.CreateCorridorBetween(Corridor.lastPosVector, GetQuadrantBasedCorner(2), corrPrefab, Corridor.corridorType.DEFAULT);
-            }
-        } else if (Corridor.getLastPosition() == Corridor.lastPosition.RIGHT)
-        {
-            if (objQuadrantInt == 3 || objQuadrantInt == 4)
-            {
-                Corridor.CreateCorridorBetween(Corridor.lastPosVector, GetQuadrantBasedCorner(4), corrPrefab, Corridor.corridorType.DEFAULT);
-            } else if (objQuadrantInt == 1 || objQuadrantInt == 2)
-            {
-                Corridor.CreateCorridorBetween(Corridor.lastPosVector, GetQuadrantBasedCorner(1), corrPrefab, Corridor.corridorType.DEFAULT);
-            }
-        }
-        //Corridor.CreateCorridorBetween(Corridor.lastPosVector, GetQuadrantBasedPosition(objQuadrantInt), corrPrefab, Corridor.corridorType.ENTRANCE);
+        var sidePoints = Corridor.CalculateSide();
+        Corridor.CreateCorridorBetween(sidePoints.Item1, sidePoints.Item2, corrPrefab, Corridor.corridorType.SIDE);
 
+        Corridor.CreateCorridorBetween(Corridor.lastPosVector, GetQuadrantBasedPosition(objQuadrantInt), corrPrefab, Corridor.corridorType.ENTRANCE);
+        entrancePosition = objQuadrantInt;
+        Corridor.ChangeActiveAllOfType(Corridor.corridorType.EXIT);
     }
 
     public static Vector3 GetQuadrantBasedPosition(int quadId, string direction = "horizontal")
@@ -364,7 +402,8 @@ public class CorridorSystem : MonoBehaviour
                 {
                     tempVector = new Vector3(2.5f, 0f, -1f);
                     Corridor.setLastPosition(Corridor.lastPosition.RIGHT);
-                } else if (direction == "vertical")
+                }
+                else if (direction == "vertical")
                 {
                     tempVector = new Vector3(1f, 0f, -2.5f);
                     Corridor.setLastPosition(Corridor.lastPosition.RIGHT);
@@ -407,7 +446,6 @@ public class CorridorSystem : MonoBehaviour
                 }
                 break;
         }
-        Corridor.lastPosVector = tempVector;
         return tempVector;
     }
 
@@ -437,61 +475,6 @@ public class CorridorSystem : MonoBehaviour
                 Corridor.setLastPosition(Corridor.lastPosition.RIGHT);
                 break;
         }
-        Corridor.lastPosVector = tempWayPoint.position;
         return tempWayPoint.position;
     }
-
-    /*public void InstantiateCorridorPrefab(Corridor corr)
-    {
-        GameObject tempObject = Instantiate(corrPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-
-        if (corr.parentObject != null)
-        {
-            tempObject.gameObject.transform.SetParent(corr.parentObject.transform, true);
-
-        }
-        tempObject.transform.localScale = corr.size;
-        tempObject.transform.position = corr.center;
-        corr.prefabObject = tempObject;
-    }
-
-    public void GenerateEntrance()
-    {
-        Vector3 entPosition = GetQuadrantBasedPosition(entrancePosition);
-        if (entrancePosition == 1 || entrancePosition == 2)
-        {
-            topEntrance.startPoint.transform.position = entPosition;
-        } else if (entrancePosition == 3 || entrancePosition == 4)
-        {
-            bottomEntrance.startPoint.transform.position = entPosition;
-        }
-    }
-
-    public void GenerateExit()
-    {
-        int oppositeSide = QuadrantCalc.Quadrant.FindOpposite(entrancePosition);
-        Vector3 exitPosition = GetQuadrantBasedPosition(oppositeSide);
-        if (oppositeSide == 1 || oppositeSide == 2)
-        {
-            topEntrance.startPoint.transform.position = exitPosition;
-        } else if (oppositeSide == 3 || oppositeSide == 4)
-        {
-            bottomEntrance.startPoint.transform.position = exitPosition;
-        }
-    }
-
-    public void GenerateSideCorridors()
-    {
-        physObjQuadrant = QuadrantCalc.Quadrant.WithinWhichQuadrant(QuadrantCalculator.physObject);
-
-        if (physObjQuadrant == 1 || physObjQuadrant == 2)
-        {
-            bridge.startPoint.transform.position = GetQuadrantBasedPosition(4, "vertical");
-            bridge.endPoint.transform.position = GetQuadrantBasedPosition(3, "vertical");
-        } else if (physObjQuadrant == 3 || physObjQuadrant == 4)
-        {
-            bridge.startPoint.transform.position = GetQuadrantBasedPosition(1, "vertical");
-            bridge.endPoint.transform.position = GetQuadrantBasedPosition(2, "vertical");
-        }
-    }*/
 }
