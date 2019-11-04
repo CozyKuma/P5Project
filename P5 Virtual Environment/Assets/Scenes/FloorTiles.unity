@@ -207,7 +207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125570015}
   m_LocalRotation: {x: 0.004026323, y: 0.7070623, z: -0.0040266993, w: 0.70712835}
-  m_LocalPosition: {x: 0.6252544, y: -0.97692645, z: 1.1438761}
+  m_LocalPosition: {x: 0.6252544, y: -0.976, z: 1.1438761}
   m_LocalScale: {x: 0.68, y: 0.20971999, z: 0.68}
   m_Children:
   - {fileID: 2001483254}
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
   pressed: 0
   tileController: {fileID: 0}
   cubeArr: []
@@ -1261,7 +1261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
   pressed: 0
   tileController: {fileID: 0}
   cubeArr: []
@@ -2927,7 +2927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
   pressed: 0
   tileController: {fileID: 0}
   cubeArr: []
@@ -3215,7 +3215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868029312}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4053743, y: 0.09, z: -1.6474657}
+  m_LocalPosition: {x: -0.4053743, y: -0.14, z: -1.6474657}
   m_LocalScale: {x: 1.01, y: 1, z: 1.01}
   m_Children:
   - {fileID: 296119550}
@@ -4031,7 +4031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 1
+  good: 0
   pressed: 0
   tileController: {fileID: 0}
   cubeArr: []
@@ -4377,7 +4377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 1
+  good: 0
   pressed: 0
   tileController: {fileID: 0}
   cubeArr: []
@@ -4487,7 +4487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
   pressed: 0
   tileController: {fileID: 0}
   cubeArr: []
@@ -4597,7 +4597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
   pressed: 0
   tileController: {fileID: 0}
   cubeArr: []
@@ -4835,7 +4835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
   pressed: 0
   tileController: {fileID: 0}
   cubeArr: []
@@ -5225,7 +5225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 1
+  good: 0
   pressed: 0
   tileController: {fileID: 0}
   cubeArr: []
@@ -5335,7 +5335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 0
+  good: 1
   pressed: 0
   tileController: {fileID: 0}
   cubeArr: []
@@ -6016,7 +6016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 1
+  good: 0
   pressed: 0
   tileController: {fileID: 0}
   cubeArr: []
@@ -6126,7 +6126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 1
+  good: 0
   pressed: 0
   tileController: {fileID: 0}
   cubeArr: []
@@ -6346,7 +6346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePressed: 0
-  good: 1
+  good: 0
   pressed: 0
   tileController: {fileID: 0}
   cubeArr: []
