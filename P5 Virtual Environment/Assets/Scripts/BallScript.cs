@@ -60,12 +60,14 @@ public class BallScript : MonoBehaviour
     public void Unfreeze()
     {
         velocity = speed;
+        rb.useGravity = true;
     }
     void FreezeBall()
     {
         velocity = 0;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+        rb.useGravity = false;
     }
     void Update()
     {
