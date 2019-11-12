@@ -8,7 +8,9 @@
       <Path>Library/PackageCache/com.unity.ide.rider@1.1.0</Path>
       <Path>Library/PackageCache/com.unity.ide.vscode@1.1.0</Path>
       <Path>Library/PackageCache/com.unity.probuilder@4.0.5</Path>
+      <Path>Library/PackageCache/com.unity.probuilder@4.1.0</Path>
       <Path>Library/PackageCache/com.unity.progrids@3.0.3-preview.4</Path>
+      <Path>Library/PackageCache/com.unity.settings-manager@1.0.0</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.0.13</Path>
       <Path>Library/PackageCache/com.unity.textmeshpro@2.0.1</Path>
       <Path>Library/PackageCache/com.unity.xr.oculus.standalone@1.38.3</Path>
@@ -18,6 +20,8 @@
     </explicitIncludes>
     <explicitExcludes>
       <Path>.idea</Path>
+      <Path>.vs</Path>
+      <Path>Experiment Results</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
       <Path>Temp</Path>
