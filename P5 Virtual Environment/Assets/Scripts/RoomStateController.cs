@@ -7,15 +7,16 @@ public class RoomStateController : MonoBehaviour
 
     public enum State { RoomState1, RoomState2, RoomState3 }
 
+    public static State oldState = State.RoomState1;
     public static State currentState = State.RoomState1;
 
     [SerializeField]
-    private GameObject room1, room2, room3;
+    public GameObject room1, room2, room3;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ActivateRoom(getCurrentState());
     }
 
     // Update is called once per frame
@@ -29,6 +30,13 @@ public class RoomStateController : MonoBehaviour
 
     }
 
+    public void ActivateRoom(State currRoom)
+    {
+        GameObject roomObj = currRoom == State.RoomState1 ? room1 :
+            currRoom == State.RoomState2 ? room2 : room3;
+        roomObj.SetActive(true);
+    }
+
     public static void ChangeState(State newState)
     {
         currentState = newState;
@@ -36,6 +44,7 @@ public class RoomStateController : MonoBehaviour
 
     public static void NextState()
     {
+        oldState = currentState;
         if (currentState == State.RoomState1)
         {
             ChangeState(State.RoomState2);

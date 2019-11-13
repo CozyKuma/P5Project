@@ -489,9 +489,10 @@ public class CorridorSystemV2 : MonoBehaviour
 
     public void GenerateEntrance()
     {
+        Corridor.DestroyAllOfType(Corridor.typeOfCorridor.EXIT);
         // Entrance corridor
         Corridor.CreateCorridorBetween(getLastListElement(listOfPoints), GetQuadrantBasedPosition(physObjQuad, "horizontal"), Corridor.typeOfCorridor.ENTRANCE);
-        CorridorSystemV2.listOfPoints.Add(GetQuadrantBasedPosition(physObjQuad, "horizontal"));
+        listOfPoints.Add(GetQuadrantBasedPosition(physObjQuad, "horizontal"));
         entranceQuad = physObjQuad;
     }
 
