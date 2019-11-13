@@ -384,12 +384,8 @@ public class CorridorSystemV2 : MonoBehaviour
     {
         exitQuad = QuadrantCalc.Quadrant.FindOpposite(entranceQuad);
         Corridor.CreateCorridorBetween(GetQuadrantBasedPosition(exitQuad, "horizontal"), GetQuadrantBasedCorner(QuadrantCalc.Quadrant.FindNeighbour(exitQuad)), Corridor.typeOfCorridor.EXIT);
-        CorridorSystemV2.listOfPoints.Add(GetQuadrantBasedCorner(QuadrantCalc.Quadrant.FindNeighbour(exitQuad)));
-        Corridor.DestroyAllOfType(Corridor.typeOfCorridor.BRIDGE);
-    }
-
-    public void GenerateBridge()
-    {
+        listOfPoints.Add(GetQuadrantBasedCorner(QuadrantCalc.Quadrant.FindNeighbour(exitQuad)));
+        
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.ENTRANCE);
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE1);
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE2);
@@ -404,12 +400,12 @@ public class CorridorSystemV2 : MonoBehaviour
             if (Corridor.GetLastPosition() == Corridor.lastPosition.RIGHT)
             {
                 Corridor.CreateCorridorBetween(getLastListElement(listOfPoints), GetQuadrantBasedPosition(4, "vertical"), Corridor.typeOfCorridor.SIDE1);
-                CorridorSystemV2.listOfPoints.Add(GetQuadrantBasedPosition(4, "vertical"));
+                listOfPoints.Add(GetQuadrantBasedPosition(4, "vertical"));
             }
             else if (Corridor.GetLastPosition() == Corridor.lastPosition.LEFT)
             {
                 Corridor.CreateCorridorBetween(getLastListElement(listOfPoints), GetQuadrantBasedPosition(3, "vertical"), Corridor.typeOfCorridor.SIDE1);
-                CorridorSystemV2.listOfPoints.Add(GetQuadrantBasedPosition(3, "vertical"));
+                listOfPoints.Add(GetQuadrantBasedPosition(3, "vertical"));
             }
         }
         else if (physObjQuad == 3 || physObjQuad == 4)
@@ -417,15 +413,18 @@ public class CorridorSystemV2 : MonoBehaviour
             if (Corridor.GetLastPosition() == Corridor.lastPosition.RIGHT)
             {
                 Corridor.CreateCorridorBetween(getLastListElement(listOfPoints), GetQuadrantBasedPosition(1, "vertical"), Corridor.typeOfCorridor.SIDE1);
-                CorridorSystemV2.listOfPoints.Add(GetQuadrantBasedPosition(1, "vertical"));
+                listOfPoints.Add(GetQuadrantBasedPosition(1, "vertical"));
             }
             else if (Corridor.GetLastPosition() == Corridor.lastPosition.LEFT)
             {
                 Corridor.CreateCorridorBetween(getLastListElement(listOfPoints), GetQuadrantBasedPosition(2, "vertical"), Corridor.typeOfCorridor.SIDE1);
-                CorridorSystemV2.listOfPoints.Add(GetQuadrantBasedPosition(2, "vertical"));
+                listOfPoints.Add(GetQuadrantBasedPosition(2, "vertical"));
             }
         }
+    }
 
+    public void GenerateBridge()
+    {
         // bridge
         if (physObjQuad == 1 || physObjQuad == 2)
         {
@@ -453,14 +452,8 @@ public class CorridorSystemV2 : MonoBehaviour
                 CorridorSystemV2.listOfPoints.Add(GetQuadrantBasedPosition(1, "vertical"));
             }
         }
-    }
-
-    public void GenerateEntrance()
-    {
+        
         physObjQuad = UpdatePhysObjQuad();
-
-        Corridor.DestroyAllOfType(Corridor.typeOfCorridor.EXIT);
-        Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE1);
 
         // Side corridor to entrance corner
         if (physObjQuad == 1 || physObjQuad == 2)
@@ -489,7 +482,10 @@ public class CorridorSystemV2 : MonoBehaviour
                 CorridorSystemV2.listOfPoints.Add(GetQuadrantBasedCorner(3));
             }
         }
+    }
 
+    public void GenerateEntrance()
+    {
         // Entrance corridor
         Corridor.CreateCorridorBetween(getLastListElement(listOfPoints), GetQuadrantBasedPosition(physObjQuad, "horizontal"), Corridor.typeOfCorridor.ENTRANCE);
         CorridorSystemV2.listOfPoints.Add(GetQuadrantBasedPosition(physObjQuad, "horizontal"));
