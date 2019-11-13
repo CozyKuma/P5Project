@@ -1,55 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\bruger\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\bruger\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_P5 Virtual Environment.766898509.00" t="ExcludeRecursive" />
-    <e p="C:\Users\bruger\Documents\GitHub\P5Project\P5 Virtual Environment" t="IncludeRecursive">
-      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
-      <e p="Assets" t="Include">
-        <e p="FackingCunt" t="Include">
-          <e p="Assets" t="Include">
-            <e p="BallScript.cs" t="Include" />
-            <e p="ObjectScript3Acti.cs" t="Include" />
-    <e p="C:\Users\mngf1\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\mngf1\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_P5 Virtual Environment.2122444367.00" t="ExcludeRecursive" />
-    <e p="C:\Users\mngf1\Desktop\P5_project\P5Project\P5 Virtual Environment" t="IncludeRecursive">
+    <e p="C:\Users\No\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\No\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_P5 Virtual Environment.-763435971.00" t="ExcludeRecursive" />
+    <e p="C:\Users\No\OneDrive\Dokumenter\Unity Projects\P5Project\P5 Virtual Environment" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="ProCore" t="Include">
-          <e p="ProGrids" t="Include">
-            <e p="About" t="Include">
-              <e p="changelog.txt" t="Include" />
-              <e p="Editor" t="Include">
-                <e p="pg_AboutWindow.cs" t="Include" />
-              </e>
-              <e p="pc_AboutEntry_ProGrids.txt" t="Include" />
-            </e>
-            <e p="Classes" t="Include">
-              <e p="pg_Constant.cs" t="Include" />
-              <e p="pg_Enum.cs" t="Include" />
-              <e p="pg_IconUtility.cs" t="Include" />
-              <e p="pg_IgnoreSnapAttribute.cs" t="Include" />
-              <e p="pg_SceneMeshRender.cs" t="Include" />
-              <e p="pg_Util.cs" t="Include" />
-            </e>
-            <e p="Editor" t="Include">
-              <e p="pg_Editor.cs" t="Include" />
-              <e p="pg_GridRenderer.cs" t="Include" />
-              <e p="pg_ParameterWindow.cs" t="Include" />
-              <e p="pg_Preferences.cs" t="Include" />
-              <e p="pg_ToggleContent.cs" t="Include" />
-            </e>
-            <e p="MonoBehaviour" t="Include">
-              <e p="pg_IgnoreSnap.cs" t="Include" />
-            </e>
-            <e p="Shader" t="Include">
-              <e p="pg_GridShader.shader" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="RDW Toolkit" t="Include">
           <e p="readme.txt" t="Include" />
           <e p="Scripts" t="Include">
@@ -111,11 +70,26 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="ActiveRoomController.cs" t="Include" />
+          <e p="BallScript.cs" t="Include" />
+          <e p="CameraRig.cs" t="Include" />
+          <e p="CorridorSystem.cs" t="Include" />
+          <e p="CorridorSystemV2.cs" t="Include" />
+          <e p="Cubes.cs" t="Include" />
+          <e p="CubesChild.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="PopulateGrid.cs" t="Include" />
+          </e>
           <e p="KeyboardTestController.cs" t="Include" />
           <e p="Lighting puzzle" t="Include">
             <e p="light_Position_check.cs" t="Include" />
           </e>
+          <e p="ObjectScript3Acti.cs" t="Include" />
+          <e p="PlayerMovement.cs" t="Include" />
           <e p="PlayerTriggerDetection.cs" t="Include" />
+          <e p="QuadrantCalc.cs" t="Include" />
+          <e p="RoomStateController.cs" t="Include" />
+          <e p="TileRes.cs" t="Include" />
+          <e p="WayPointGrid.cs" t="Include" />
           <e p="WorldRedirection.cs" t="Include" />
         </e>
         <e p="Standard Assets" t="Include">
@@ -638,24 +612,12 @@
           <e p="WindowsHelper" t="Include">
             <e p="SteamVR_Windows_Editor_Helper.cs" t="Include" />
             <e p="SteamVR_Windows_EditorHelper.asmdef" t="Include" />
-
-    <e p="C:\Users\bruger\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\bruger\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_P5 Virtual Environment.766898509.00" t="ExcludeRecursive" />
-    <e p="C:\Users\bruger\Documents\GitHub\P5Project\P5 Virtual Environment" t="IncludeRecursive">
-      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
-      <e p="Assets" t="Include">
-        <e p="FackingCunt" t="Include">
-          <e p="Assets" t="Include">
-            <e p="BallScript.cs" t="Include" />
-            <e p="ObjectScript3Acti.cs" t="Include" />
-
           </e>
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="P5 Virtual Environment.sln" t="IncludeFlat" />
       <e p="Packages" t="ExcludeRecursive" />
-
       <e p="SteamVR.csproj" t="IncludeRecursive" />
       <e p="SteamVR_Editor.csproj" t="IncludeRecursive" />
       <e p="SteamVR_Input_Editor.csproj" t="IncludeRecursive" />
