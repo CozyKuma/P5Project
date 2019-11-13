@@ -37,12 +37,13 @@ public class RoomStateController : MonoBehaviour
         roomObj.SetActive(true);
     }
 
-    public static void ChangeState(State newState)
+    public void ChangeState(State newState)
     {
         currentState = newState;
+        ActivateRoom(currentState);
     }
 
-    public static void NextState()
+    public void NextState()
     {
         oldState = currentState;
         if (currentState == State.RoomState1)

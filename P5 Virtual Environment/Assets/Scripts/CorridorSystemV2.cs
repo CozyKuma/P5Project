@@ -389,7 +389,7 @@ public class CorridorSystemV2 : MonoBehaviour
         Corridor.CreateCorridorBetween(GetQuadrantBasedPosition(exitQuad, "horizontal"), GetQuadrantBasedCorner(QuadrantCalc.Quadrant.FindNeighbour(exitQuad)), Corridor.typeOfCorridor.EXIT);
         listOfPoints.Add(GetQuadrantBasedCorner(QuadrantCalc.Quadrant.FindNeighbour(exitQuad)));
         
-        Corridor.DestroyAllOfType(Corridor.typeOfCorridor.ENTRANCE);
+        //Corridor.DestroyAllOfType(Corridor.typeOfCorridor.ENTRANCE);
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE1);
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE2);
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.BRIDGE);
@@ -485,11 +485,13 @@ public class CorridorSystemV2 : MonoBehaviour
                 CorridorSystemV2.listOfPoints.Add(GetQuadrantBasedCorner(3));
             }
         }
+        Corridor.DestroyAllOfType(Corridor.typeOfCorridor.ENTRANCE);
     }
 
     public void GenerateEntrance()
     {
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.EXIT);
+        Corridor.DestroyAllOfType(Corridor.typeOfCorridor.ENTRANCE);
         // Entrance corridor
         Corridor.CreateCorridorBetween(getLastListElement(listOfPoints), GetQuadrantBasedPosition(physObjQuad, "horizontal"), Corridor.typeOfCorridor.ENTRANCE);
         listOfPoints.Add(GetQuadrantBasedPosition(physObjQuad, "horizontal"));
