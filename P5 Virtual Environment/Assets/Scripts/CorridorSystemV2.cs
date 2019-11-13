@@ -150,6 +150,7 @@ public class CorridorSystemV2 : MonoBehaviour
             
             Material tempRenderer = floorObject.GetComponent<Renderer>().material;
             tempRenderer.mainTextureScale = new Vector2(2 * size.x, 2 * size.z);
+            tempRenderer.SetTextureScale("_DetailAlbedoMap", new Vector2(20 * size.x, 20 * size.z));
         }
 
         private void SetWallMaterial()
@@ -157,7 +158,9 @@ public class CorridorSystemV2 : MonoBehaviour
             foreach (GameObject wall in wallObjects)
             {
                 Material tempRenderer = wall.GetComponent<Renderer>().material;
-                tempRenderer.mainTextureScale = new Vector2(Mathf.Max(2 * wall.transform.localScale.z - 2 * CorridorScale.z, 1), 4);
+                tempRenderer.mainTextureScale = new Vector2(Mathf.Max(6 * wall.transform.localScale.z - 2 * CorridorScale.z, 1), 6);
+                tempRenderer.SetTextureScale("_DetailAlbedoMap", new Vector2(Mathf.Max(2 * wall.transform.localScale.z - 2 * CorridorScale.z, 1), 2));
+                tempRenderer.SetTextureOffset("_DetailAlbedoMap", new Vector2(0, 0.75f));
             }
         }
 

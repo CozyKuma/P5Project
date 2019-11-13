@@ -8,7 +8,6 @@ public class RoomStateController : MonoBehaviour
     public enum State { RoomState1, RoomState2, RoomState3 }
 
     public static State currentState = State.RoomState1;
-    public GameObject doorPrefab;
 
     [SerializeField]
     private GameObject room1, room2, room3;
@@ -49,5 +48,19 @@ public class RoomStateController : MonoBehaviour
     public static State getCurrentState()
     {
         return currentState;
+    }
+
+    public static void RoomComplete()
+    {
+        Debug.Log("LEVEL COMPLETE!");
+        LevelTransition();
+    }
+
+    public static void LevelTransition()
+    {
+        // Open Door to Corridor if Object is not close to door
+        
+        // When player in Corridor, Remove Room
+        // When player is in SIDE2 Corridor, Place next roomstate (NextState())
     }
 }

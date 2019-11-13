@@ -74,7 +74,6 @@
           <e p="CameraRig.cs" t="Include" />
           <e p="CorridorSystem.cs" t="Include" />
           <e p="CorridorSystemV2.cs" t="Include" />
-          <e p="Cubes.cs" t="Include" />
           <e p="CubesChild.cs" t="Include" />
           <e p="Editor" t="Include">
             <e p="PopulateGrid.cs" t="Include" />
