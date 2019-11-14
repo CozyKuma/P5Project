@@ -1,34 +1,35 @@
 ﻿using UnityEngine;
 public class CubesChild : MonoBehaviour
 {
-    public int tilePressed = 0;
     public bool good, pressed;
-    private float pressedPos = 0.9f;
-    public GameObject tileController;
-    Vector3 originalPos;
-    public GameObject[] cubeArr;  
+    public float pressedPos = -1.265f;
+    public float zeroPos = -1.25f;
     void Update()
-    {
-        if (GameObject.Find("/Map").GetComponent<TileRes>().tileState == false)
+    { //In case the player collides with an incorrect tile, this if-statement is true.
+        if (GameObject.Find("/FloorTiles/Map").GetComponent<TileRes>().tileState == false)
         {
+            //Resets the position of all tiles, so no tile is lowered.
+            transform.parent.localPosition = new Vector3(transform.parent.localPosition.x, zeroPos, transform.parent.localPosition.z);
             pressed = false;
         }
     }
+    //Checks if something (in this case, the player), collides with the collision trigger over the tiles
     public void OnTriggerEnter(Collider collision)
     {
         if (collision.name == "Player")
-        {
-            gameObject.GetComponentInParent<Cubes>().pressed = true;
-            Debug.Log("parent is "+gameObject.GetComponentInParent<Cubes>());
+        {//If a tile is pressed, the "pressed" boolean from "Cubes" class is set to true.
+            //gameObject.GetComponentInParent<CubesChild>().pressed = true;
+            pressed = true;
             if (good == false)
             {
-                GameObject.Find("/Map").GetComponent<TileRes>().tileState = false;
-                transform.parent.position = new Vector3(transform.position.x, pressedPos, transform.position.z);
+                //If the player hits a tile, where the "good" boolean is false, the "tilestate" is set to false, which activates line 8
+                GameObject.Find("/FloorTiles/Map").GetComponent<TileRes>().tileState = false;
             }
-            if (good == true)
+            if (good)
             {
-                GameObject.Find("/Map").GetComponent<TileRes>().tileState = true;
-                transform.parent.position = new Vector3(transform.position.x, pressedPos, transform.position.z);
+                //If the player hits a tile, where the "good" boolean is true, the "tilestate" is set to true and the tile is lowered
+                GameObject.Find("/FloorTiles/Map").GetComponent<TileRes>().tileState = true;
+                transform.parent.localPosition = new Vector3(transform.parent.localPosition.x, pressedPos, transform.parent.localPosition.z);
             }
         }
     }
