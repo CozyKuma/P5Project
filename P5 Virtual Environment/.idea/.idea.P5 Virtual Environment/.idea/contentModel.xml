@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\mngf1\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\mngf1\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_P5 Virtual Environment.2122444367.00" t="ExcludeRecursive" />
-    <e p="C:\Users\mngf1\Desktop\P5_project\P5Project\P5 Virtual Environment" t="IncludeRecursive">
+    <e p="C:\Users\No\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\No\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_P5 Virtual Environment.-763435971.00" t="ExcludeRecursive" />
+    <e p="C:\Users\No\OneDrive\Dokumenter\Unity Projects\P5Project\P5 Virtual Environment" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
@@ -74,6 +74,7 @@
           <e p="CameraRig.cs" t="Include" />
           <e p="CorridorSystem.cs" t="Include" />
           <e p="CorridorSystemV2.cs" t="Include" />
+          <e p="CorridorTrigger.cs" t="Include" />
           <e p="CubesChild.cs" t="Include" />
           <e p="Editor" t="Include">
             <e p="PopulateGrid.cs" t="Include" />
@@ -86,6 +87,7 @@
           <e p="PlayerMovement.cs" t="Include" />
           <e p="PlayerTriggerDetection.cs" t="Include" />
           <e p="QuadrantCalc.cs" t="Include" />
+          <e p="RoomStateController.cs" t="Include" />
           <e p="TileRes.cs" t="Include" />
           <e p="WayPointGrid.cs" t="Include" />
           <e p="WorldRedirection.cs" t="Include" />
