@@ -27,8 +27,9 @@ public class CubesChild : MonoBehaviour
             }
             if (good)
             {
-                //If the player hits a tile, where the "good" boolean is true, the "tilestate" is set to true and the tile is lowered
+                //If the player hits a tile, where the "good" boolean is true, the "tilestate" is set to true, the tile is lowered, and emission is enabled on the parent
                 GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().tileState = true;
+                gameObject.GetComponentsInParent<Renderer>()[1].material.EnableKeyword("_EMISSION");
                 transform.parent.localPosition = new Vector3(transform.parent.localPosition.x, pressedPos, transform.parent.localPosition.z);
             }
         }
