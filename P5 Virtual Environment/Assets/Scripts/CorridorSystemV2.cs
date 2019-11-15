@@ -110,7 +110,7 @@ public class CorridorSystemV2 : MonoBehaviour
                 }
             }
 
-            tempSize.y = 0.5f;
+            tempSize.y = 0.25f;
 
             if (end.z - start.z == 0)
             {
@@ -405,7 +405,7 @@ public class CorridorSystemV2 : MonoBehaviour
         Corridor.CreateCorridorBetween(WayPointGrid.WayPoint.getSpecificWaypoint(5, 5).position, GetQuadrantBasedPosition(4), Corridor.typeOfCorridor.ENTRANCE, false);
         Corridor initCorr = Corridor.GetListOfCorridors().Last();
         initCorr.CreateWalls();
-        initCorr.CreateSingleWall(new Vector3(WayPointGrid.WayPoint.getSpecificWaypoint(5, 5).position.x, 1, WayPointGrid.WayPoint.getSpecificWaypoint(5,5).position.z - 0.5f), new Vector3(0, 90, 0));
+        initCorr.CreateSingleWall(new Vector3(WayPointGrid.WayPoint.getSpecificWaypoint(5, 5).position.x, 1.5f, WayPointGrid.WayPoint.getSpecificWaypoint(5,5).position.z - 0.5f), new Vector3(0, 90, 0));
         initCorr.CreateCorner("entrance");
         
         
