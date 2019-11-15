@@ -5,7 +5,7 @@ public class ObjectScript3Acti : MonoBehaviour
     public bool fireSolved, waterSolved, doorOpened;
     public bool redActive, greenActive, blueActive;
     public BallScript ball;
-    public GameObject door;
+    //public GameObject door;
     public float height, doorSpeed;
     private float counter;
     
@@ -52,12 +52,12 @@ public class ObjectScript3Acti : MonoBehaviour
     }
     void Update()
     {
-        if (doorOpened && counter < height)
+        /*if (doorOpened && counter < height)
         {
             Vector3 temp = door.transform.position;
             temp.y += doorSpeed;
             door.transform.position = temp;
             counter += doorSpeed;
-        }
+        }*/
     }
 }

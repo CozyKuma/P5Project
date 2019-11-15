@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class TileRes : MonoBehaviour
 {
     public bool tileState;
+    public bool winState;
 
     public GameObject tile = null;
     public List<GameObject> tileList = new List<GameObject>();
@@ -66,6 +67,7 @@ public class TileRes : MonoBehaviour
     {
         if (goodTiles.Count == goodPressedTiles.Count)
         {
+            winState = true;
             win();
         }
     }

@@ -6,7 +6,7 @@ public class CubesChild : MonoBehaviour
     public float zeroPos = -1.25f;
     void Update()
     { //In case the player collides with an incorrect tile, this if-statement is true.
-        if (GameObject.Find("/FloorTiles/Map").GetComponent<TileRes>().tileState == false)
+        if (GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().tileState == false && GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().winState == false)
         {
             //Resets the position of all tiles, so no tile is lowered.
             transform.parent.localPosition = new Vector3(transform.parent.localPosition.x, zeroPos, transform.parent.localPosition.z);
@@ -23,12 +23,12 @@ public class CubesChild : MonoBehaviour
             if (good == false)
             {
                 //If the player hits a tile, where the "good" boolean is false, the "tilestate" is set to false, which activates line 8
-                GameObject.Find("/FloorTiles/Map").GetComponent<TileRes>().tileState = false;
+                GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().tileState = false;
             }
             if (good)
             {
                 //If the player hits a tile, where the "good" boolean is true, the "tilestate" is set to true and the tile is lowered
-                GameObject.Find("/FloorTiles/Map").GetComponent<TileRes>().tileState = true;
+                GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().tileState = true;
                 transform.parent.localPosition = new Vector3(transform.parent.localPosition.x, pressedPos, transform.parent.localPosition.z);
             }
         }
