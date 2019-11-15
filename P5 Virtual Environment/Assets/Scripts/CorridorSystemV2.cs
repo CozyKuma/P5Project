@@ -19,11 +19,14 @@ public class CorridorSystemV2 : MonoBehaviour
     [SerializeField]
     private GameObject serializeHelperPrefabCorner;
     [SerializeField]
-    private  GameObject serializeHelperPrefabTrigger;
+    private GameObject serializeHelperPrefabTrigger;
+    [SerializeField]
+    private GameObject serializeHelperPrefabDoor;
     private static GameObject _floorPrefab;
     private static GameObject _wallPrefab;
     private static GameObject _cornerPrefab;
     private static GameObject _triggerPrefab;
+    private static GameObject _doorPrefab;
     [SerializeField]
     private QuadrantCalc QuadrantCalculator;
     [SerializeField]
@@ -58,6 +61,7 @@ public class CorridorSystemV2 : MonoBehaviour
         private List<GameObject> cornerObjects = new List<GameObject>();
         private List<GameObject> wallObjects = new List<GameObject>();
         private GameObject triggerObject;
+        private GameObject doorObject;
 
         public Corridor(Vector3 start, Vector3 end, typeOfCorridor corrType = typeOfCorridor.DEFAULT, bool standardCorridor = true)
         {
@@ -152,6 +156,11 @@ public class CorridorSystemV2 : MonoBehaviour
             if (type == typeOfCorridor.EXIT || type == typeOfCorridor.BRIDGE || type == typeOfCorridor.ENTRANCE)
             {
                 CreateTrigger();
+            }
+
+            if (type == typeOfCorridor.EXIT || type == typeOfCorridor.ENTRANCE)
+            {
+                CreateDoor();
             }
         }
 
@@ -269,6 +278,16 @@ public class CorridorSystemV2 : MonoBehaviour
             triggerComponent.typeOfTrigger = type;
         }
 
+        public void CreateDoor()
+        {
+            GameObject tempObject = Instantiate(_doorPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            tempObject.transform.parent = CorridorContainer.transform;
+            var localPosition = center;
+            localPosition.z += localPosition.z > 0 ? -0.5f : 0.5f;
+            tempObject.transform.localPosition = localPosition;
+            doorObject = tempObject;
+        }
+
         public static void CreateCorridorBetween(Vector3 start, Vector3 end, typeOfCorridor type, bool standardCorridor = true) // Instantiates the prefab of a specific size to work as a corridor.
         {
             Corridor tempCorr = new Corridor(start, end, type, standardCorridor);
@@ -303,6 +322,7 @@ public class CorridorSystemV2 : MonoBehaviour
                     }
                     
                     Destroy(corr.triggerObject);
+                    Destroy(corr.doorObject);
                     
                     instancesToRemove.Add(corr);
                 }
@@ -337,6 +357,7 @@ public class CorridorSystemV2 : MonoBehaviour
                         }
                         
                         corr.triggerObject.SetActive(false);
+                        corr.doorObject.SetActive(false);
                         
                     }
                     else if (!corr.isActive)
@@ -354,6 +375,7 @@ public class CorridorSystemV2 : MonoBehaviour
                         }
                         
                         corr.triggerObject.SetActive(true);
+                        corr.doorObject.SetActive(true);
                         
                     }
                 }
@@ -643,5 +665,6 @@ public class CorridorSystemV2 : MonoBehaviour
         _wallPrefab = serializeHelperPrefabWall;
         _cornerPrefab = serializeHelperPrefabCorner;
         _triggerPrefab = serializeHelperPrefabTrigger;
+        _doorPrefab = serializeHelperPrefabDoor;
     }
 }
