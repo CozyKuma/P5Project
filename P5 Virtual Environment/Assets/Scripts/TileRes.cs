@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class TileRes : MonoBehaviour
 {
     public bool tileState;
+    public bool winState;
 
     public GameObject tile = null;
     public List<GameObject> tileList = new List<GameObject>();
@@ -52,10 +53,11 @@ public class TileRes : MonoBehaviour
     {
         //If an incorrect tile is hit by the player, the goodPressedTiles list is cleared.
         if (tileState == false)
-        { //Resets the "pressed" state to false before removing the objects from the "goodPressedTiles" list
+        { //Resets the "pressed" state to false and disables emission before removing the objects from the "goodPressedTiles" list
             foreach (GameObject obj in goodPressedTiles)
             {
                 obj.GetComponentInChildren<CubesChild>().pressed = false;
+                obj.GetComponentInChildren<Renderer>().material.DisableKeyword("_EMISSION");
             }
             //Clears the "goodPressedTiles" list
             goodPressedTiles.Clear();
@@ -66,6 +68,7 @@ public class TileRes : MonoBehaviour
     {
         if (goodTiles.Count == goodPressedTiles.Count)
         {
+            winState = true;
             win();
         }
     }
