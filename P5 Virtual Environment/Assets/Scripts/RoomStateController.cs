@@ -27,16 +27,20 @@ public class RoomStateController : MonoBehaviour
         if (Input.GetKeyDown("0"))
         {
             ActivateRoom(State.RoomState0);
+            DeactivateRoom(oldState);
         } else if (Input.GetKeyDown("1"))
         {
             ActivateRoom(State.RoomState1);
+            DeactivateRoom(oldState);
             CorridorSystem.GenerateInitialSetup();
         } else if (Input.GetKeyDown("2"))
         {
             ActivateRoom(State.RoomState2);
+            DeactivateRoom(oldState);
         } else if (Input.GetKeyDown("3"))
         {
             ActivateRoom(State.RoomState3);
+            DeactivateRoom(oldState);
         } else if (Input.GetKeyDown("q"))
         {
             NextState();
@@ -54,9 +58,11 @@ public class RoomStateController : MonoBehaviour
 
     public void ActivateRoom(State roomToActivate)
     {
+        oldState = currentState;
         GameObject roomObj = roomToActivate == State.RoomState0 ? room0 : roomToActivate == State.RoomState1 ? room1 :
             roomToActivate == State.RoomState2 ? room2 : room3;
         roomObj.SetActive(true);
+        currentState = roomToActivate;
     }
 
     public void DeactivateRoom(State roomToDeactivate)
@@ -68,9 +74,7 @@ public class RoomStateController : MonoBehaviour
 
     public void ChangeState(State newState)
     {
-        oldState = currentState;
-        currentState = newState;
-        ActivateRoom(currentState);
+        ActivateRoom(newState);
         DeactivateRoom(oldState);
     }
 
