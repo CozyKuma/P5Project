@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.CodeDom;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -17,9 +18,12 @@ public class CorridorSystemV2 : MonoBehaviour
     private GameObject serializeHelperPrefabWall;
     [SerializeField]
     private GameObject serializeHelperPrefabCorner;
+    [SerializeField]
+    private  GameObject serializeHelperPrefabTrigger;
     private static GameObject _floorPrefab;
     private static GameObject _wallPrefab;
     private static GameObject _cornerPrefab;
+    private static GameObject _triggerPrefab;
     [SerializeField]
     private QuadrantCalc QuadrantCalculator;
     [SerializeField]
@@ -53,6 +57,7 @@ public class CorridorSystemV2 : MonoBehaviour
         private GameObject floorObject;
         private List<GameObject> cornerObjects = new List<GameObject>();
         private List<GameObject> wallObjects = new List<GameObject>();
+        private GameObject triggerObject;
 
         public Corridor(Vector3 start, Vector3 end, typeOfCorridor corrType = typeOfCorridor.DEFAULT, bool standardCorridor = true)
         {
@@ -142,6 +147,11 @@ public class CorridorSystemV2 : MonoBehaviour
                 size.x = size.x > size.z ? size.x -= 1f : size.x;
                 size.z = size.x < size.z ? size.z -= 1f : size.z;
                 center.z -= 0.5f;
+            }
+            if (!standardCorridor) return;
+            if (type == typeOfCorridor.EXIT || type == typeOfCorridor.BRIDGE || type == typeOfCorridor.ENTRANCE)
+            {
+                CreateTrigger();
             }
         }
 
@@ -248,6 +258,17 @@ public class CorridorSystemV2 : MonoBehaviour
             cornerObjects.Add(tempCorner);
         }
 
+        public void CreateTrigger()
+        {
+            GameObject tempObject = Instantiate(_triggerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            tempObject.transform.parent = CorridorContainer.transform;
+            tempObject.transform.localPosition = center;
+            triggerObject = tempObject;
+            CorridorTrigger triggerComponent = tempObject.GetComponent<CorridorTrigger>();
+            triggerComponent.activated = false;
+            triggerComponent.typeOfTrigger = type;
+        }
+
         public static void CreateCorridorBetween(Vector3 start, Vector3 end, typeOfCorridor type, bool standardCorridor = true) // Instantiates the prefab of a specific size to work as a corridor.
         {
             Corridor tempCorr = new Corridor(start, end, type, standardCorridor);
@@ -280,6 +301,9 @@ public class CorridorSystemV2 : MonoBehaviour
                         corner.SetActive(false);
                         Destroy(corner);
                     }
+                    
+                    Destroy(corr.triggerObject);
+                    
                     instancesToRemove.Add(corr);
                 }
             }
@@ -311,6 +335,9 @@ public class CorridorSystemV2 : MonoBehaviour
                         {
                             corner.SetActive(false);
                         }
+                        
+                        corr.triggerObject.SetActive(false);
+                        
                     }
                     else if (!corr.isActive)
                     {
@@ -325,6 +352,9 @@ public class CorridorSystemV2 : MonoBehaviour
                         {
                             corner.SetActive(true);
                         }
+                        
+                        corr.triggerObject.SetActive(true);
+                        
                     }
                 }
             }
@@ -346,20 +376,6 @@ public class CorridorSystemV2 : MonoBehaviour
 
         // Find which Quadrant the object is within
         physObjQuad = UpdatePhysObjQuad();
-
-        // Generate the Initial entrance corridor - this will be deleted when the first "bridge" is created.
-        Corridor.CreateCorridorBetween(WayPointGrid.WayPoint.getSpecificWaypoint(5, 5).position, GetQuadrantBasedPosition(4), Corridor.typeOfCorridor.ENTRANCE, false);
-        Corridor initCorr = Corridor.GetListOfCorridors().Last();
-        initCorr.CreateWalls();
-        initCorr.CreateSingleWall(new Vector3(WayPointGrid.WayPoint.getSpecificWaypoint(5, 5).position.x, 1, WayPointGrid.WayPoint.getSpecificWaypoint(5,5).position.z - 0.5f), new Vector3(0, 90, 0));
-        initCorr.CreateCorner("entrance");
-        
-        
-        // Create the point from which to build the initial exit.
-        CorridorSystemV2.listOfPoints.Add(GetQuadrantBasedPosition(2)); // First exit
-        Corridor.SetLastPosition(Corridor.lastPosition.LEFT);
-
-        GenerateExit();
     }
 
     // Update is called once per frame
@@ -383,6 +399,23 @@ public class CorridorSystemV2 : MonoBehaviour
         }
     }
 
+    public void GenerateInitialSetup()
+    {
+        // Generate the Initial entrance corridor - this will be deleted when the first "bridge" is created.
+        Corridor.CreateCorridorBetween(WayPointGrid.WayPoint.getSpecificWaypoint(5, 5).position, GetQuadrantBasedPosition(4), Corridor.typeOfCorridor.ENTRANCE, false);
+        Corridor initCorr = Corridor.GetListOfCorridors().Last();
+        initCorr.CreateWalls();
+        initCorr.CreateSingleWall(new Vector3(WayPointGrid.WayPoint.getSpecificWaypoint(5, 5).position.x, 1, WayPointGrid.WayPoint.getSpecificWaypoint(5,5).position.z - 0.5f), new Vector3(0, 90, 0));
+        initCorr.CreateCorner("entrance");
+        
+        
+        // Create the point from which to build the initial exit.
+        CorridorSystemV2.listOfPoints.Add(GetQuadrantBasedPosition(2)); // First exit
+        Corridor.SetLastPosition(Corridor.lastPosition.LEFT);
+
+        GenerateExit();
+    }
+    
     public void GenerateExit()
     {
         exitQuad = QuadrantCalc.Quadrant.FindOpposite(entranceQuad);
@@ -391,7 +424,7 @@ public class CorridorSystemV2 : MonoBehaviour
         
         //Corridor.DestroyAllOfType(Corridor.typeOfCorridor.ENTRANCE);
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE1);
-        Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE2);
+        //Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE2);
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.BRIDGE);
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.DEFAULT);
 
@@ -609,5 +642,6 @@ public class CorridorSystemV2 : MonoBehaviour
         _floorPrefab = serializeHelperPrefabFloor;
         _wallPrefab = serializeHelperPrefabWall;
         _cornerPrefab = serializeHelperPrefabCorner;
+        _triggerPrefab = serializeHelperPrefabTrigger;
     }
 }
