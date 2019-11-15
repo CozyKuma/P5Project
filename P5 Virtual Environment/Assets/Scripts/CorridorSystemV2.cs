@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.CodeDom;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -300,6 +301,9 @@ public class CorridorSystemV2 : MonoBehaviour
                         corner.SetActive(false);
                         Destroy(corner);
                     }
+                    
+                    Destroy(corr.triggerObject);
+                    
                     instancesToRemove.Add(corr);
                 }
             }
@@ -331,6 +335,9 @@ public class CorridorSystemV2 : MonoBehaviour
                         {
                             corner.SetActive(false);
                         }
+                        
+                        corr.triggerObject.SetActive(false);
+                        
                     }
                     else if (!corr.isActive)
                     {
@@ -345,6 +352,9 @@ public class CorridorSystemV2 : MonoBehaviour
                         {
                             corner.SetActive(true);
                         }
+                        
+                        corr.triggerObject.SetActive(true);
+                        
                     }
                 }
             }
