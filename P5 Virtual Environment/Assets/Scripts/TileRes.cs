@@ -34,10 +34,6 @@ public class TileRes : MonoBehaviour
         winCondition();
       //  print("GoodPressedTiles: " + goodPressedTiles.Count);
     }
-    void win()
-    {
-        print("Ez win");
-    }
 
     void checkGoodTilesPressed()
     {
@@ -61,7 +57,7 @@ public class TileRes : MonoBehaviour
             foreach (GameObject obj in goodPressedTiles)
             {
                 obj.GetComponentInChildren<CubesChild>().pressed = false;
-                obj.GetComponentInChildren<Renderer>().material.DisableKeyword("_EMISSION");
+                obj.GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
             }
             //Clears the "goodPressedTiles" list and fill the object with water
             goodPressedTiles.Clear();
@@ -76,5 +72,9 @@ public class TileRes : MonoBehaviour
             winState = true;
             win();
         }
+    }
+    void win()
+    {
+        print("Ez win");
     }
 }

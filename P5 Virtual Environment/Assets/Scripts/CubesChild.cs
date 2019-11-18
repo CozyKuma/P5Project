@@ -1,15 +1,25 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 public class CubesChild : MonoBehaviour
 {
     public bool good, pressed;
     public float pressedPos = -1.265f;
     public float zeroPos = -1.25f;
+    private Vector3 parentPos;
+    private TileRes manager;
+
+    private void Start()
+    {
+        manager = GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>();
+    }
+
     void Update()
     { //In case the player collides with an incorrect tile, this if-statement is true.
-        if (GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().tileState == false && GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().winState == false)
+        if (manager.tileState == false && manager.winState == false)
         {
             //Resets the position of all tiles, so no tile is lowered.
-            transform.parent.localPosition = new Vector3(transform.parent.localPosition.x, zeroPos, transform.parent.localPosition.z);
+            parentPos = transform.parent.localPosition;
+            parentPos = new Vector3(parentPos.x, zeroPos, parentPos.z);
             pressed = false;
         }
     }
@@ -23,14 +33,15 @@ public class CubesChild : MonoBehaviour
             if (good == false)
             {
                 //If the player hits a tile, where the "good" boolean is false, the "tilestate" is set to false, which activates line 8
-                GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().tileState = false;
+                manager.tileState = false;
             }
             if (good)
             {
                 //If the player hits a tile, where the "good" boolean is true, the "tilestate" is set to true, the tile is lowered, and emission is enabled on the parent
-                GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().tileState = true;
+                manager.tileState = true;
                 gameObject.GetComponentsInParent<Renderer>()[1].material.EnableKeyword("_EMISSION");
-                transform.parent.localPosition = new Vector3(transform.parent.localPosition.x, pressedPos, transform.parent.localPosition.z);
+                parentPos = transform.parent.localPosition;
+                parentPos = new Vector3(parentPos.x, pressedPos, parentPos.z);
             }
         }
     }
