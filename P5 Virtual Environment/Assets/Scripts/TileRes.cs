@@ -8,10 +8,10 @@ public class TileRes : MonoBehaviour
 
     public GameObject tile = null;
     public List<GameObject> tileList = new List<GameObject>();
-    private List<GameObject> goodTiles = new List<GameObject>();
+    private List<CubesChild> goodTiles = new List<CubesChild>();
     private Animator thisAnim;
 
-    private List<GameObject> goodPressedTiles = new List<GameObject>();
+    private List<CubesChild> goodPressedTiles = new List<CubesChild>();
     void Start()
     {  //Loops through all tiles
         foreach (GameObject obj in tileList)
@@ -20,7 +20,7 @@ public class TileRes : MonoBehaviour
             bool goodFromChild = tempCube.good;
             if (goodFromChild)
             {
-                goodTiles.Add(obj);
+                goodTiles.Add(tempCube);
             }
         }
         GameObject waterObj = GameObject.Find("WaterBasicDaytime");
@@ -37,10 +37,10 @@ public class TileRes : MonoBehaviour
 
     void checkGoodTilesPressed()
     {
-        foreach (GameObject obj in goodTiles)
+        foreach (CubesChild obj in goodTiles)
         { //Checks each tile in the list if they are pressed. When pressed during the program, they are added to the list "goodPressedTiles"
-            CubesChild tempCube = obj.GetComponentInChildren<CubesChild>();
-            bool pressedFromChild = tempCube.pressed;
+            //CubesChild tempCube = obj.GetComponentInChildren<CubesChild>();
+            bool pressedFromChild = obj.pressed;
             if (pressedFromChild && !goodPressedTiles.Contains(obj))
             {
                 goodPressedTiles.Add(obj);
@@ -54,10 +54,10 @@ public class TileRes : MonoBehaviour
         //If an incorrect tile is hit by the player, the goodPressedTiles list is cleared.
         if (tileState == false)
         { //Resets the "pressed" state to false and disables emission before removing the objects from the "goodPressedTiles" list
-            foreach (GameObject obj in goodPressedTiles)
+            foreach (CubesChild obj in goodPressedTiles)
             {
-                obj.GetComponentInChildren<CubesChild>().pressed = false;
-                obj.GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+                obj.pressed = false;
+                obj.EmissionOff();
             }
             //Clears the "goodPressedTiles" list and fill the object with water
             goodPressedTiles.Clear();

@@ -7,10 +7,12 @@ public class CubesChild : MonoBehaviour
     public float zeroPos = -1.25f;
     private Vector3 parentPos;
     private TileRes manager;
+    private Material parentMaterial;
 
     private void Start()
     {
         manager = GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>();
+        parentMaterial = gameObject.GetComponentsInParent<Renderer>()[1].material;
     }
 
     void Update()
@@ -22,6 +24,11 @@ public class CubesChild : MonoBehaviour
             parentPos = new Vector3(parentPos.x, zeroPos, parentPos.z);
             pressed = false;
         }
+    }
+    // Disables emission 
+    public void EmissionOff()
+    {
+        parentMaterial.DisableKeyword("_EMISSION");
     }
     //Checks if something (in this case, the player), collides with the collision trigger over the tiles
     public void OnTriggerEnter(Collider collision)
@@ -39,7 +46,7 @@ public class CubesChild : MonoBehaviour
             {
                 //If the player hits a tile, where the "good" boolean is true, the "tilestate" is set to true, the tile is lowered, and emission is enabled on the parent
                 manager.tileState = true;
-                gameObject.GetComponentsInParent<Renderer>()[1].material.EnableKeyword("_EMISSION");
+                parentMaterial.EnableKeyword("_EMISSION");
                 parentPos = transform.parent.localPosition;
                 parentPos = new Vector3(parentPos.x, pressedPos, parentPos.z);
             }
