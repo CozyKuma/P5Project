@@ -152,15 +152,16 @@ public class CorridorSystemV2 : MonoBehaviour
                 size.z = size.x < size.z ? size.z -= 1f : size.z;
                 center.z -= 0.5f;
             }
+            
+            if (type == typeOfCorridor.EXIT || type == typeOfCorridor.ENTRANCE)
+            {
+                CreateDoor();
+            }
+            
             if (!standardCorridor) return;
             if (type == typeOfCorridor.EXIT || type == typeOfCorridor.BRIDGE || type == typeOfCorridor.ENTRANCE)
             {
                 CreateTrigger();
-            }
-
-            if (type == typeOfCorridor.EXIT || type == typeOfCorridor.ENTRANCE)
-            {
-                CreateDoor();
             }
         }
 
@@ -282,9 +283,10 @@ public class CorridorSystemV2 : MonoBehaviour
         {
             GameObject tempObject = Instantiate(_doorPrefab, new Vector3(0, 0, 0), Quaternion.identity);
             tempObject.transform.parent = CorridorContainer.transform;
-            var localPosition = center;
-            localPosition.z += localPosition.z > 0 ? -0.5f : 0.5f;
+            var localPosition = type == typeOfCorridor.EXIT ? start : type == typeOfCorridor.ENTRANCE ? end : start;
+            localPosition.x += localPosition.x > 0 ? -0.575f : 0.575f;
             tempObject.transform.localPosition = localPosition;
+            tempObject.transform.Rotate(0, 90, 0);
             doorObject = tempObject;
         }
 

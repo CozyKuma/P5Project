@@ -63,6 +63,7 @@ public class RoomStateController : MonoBehaviour
             roomToActivate == State.RoomState2 ? room2 : room3;
         roomObj.SetActive(true);
         currentState = roomToActivate;
+        CreateRoomWalls();
     }
 
     public void DeactivateRoom(State roomToDeactivate)
@@ -110,5 +111,15 @@ public class RoomStateController : MonoBehaviour
         // When player in Corridor, Remove Room
 
         // When player is in SIDE2 Corridor, Place next roomstate (NextState())
+    }
+
+    public void CreateRoomWalls()
+    {
+        if (currentState == State.RoomState0) return;
+        var parentRoom = currentState == State.RoomState1 ? room1.transform :
+            currentState == State.RoomState2 ? room2.transform : room3.transform;
+        
+        // Side Walls
+        
     }
 }

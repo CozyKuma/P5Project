@@ -2062,6 +2062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileState: 0
+  winState: 0
   tile: {fileID: 0}
   tileList:
   - {fileID: 491870684}
@@ -7547,6 +7548,12 @@ PrefabInstance:
       propertyPath: serializeHelperPrefabTrigger
       value: 
       objectReference: {fileID: 6617775966809121878, guid: c41d0fc4be7e32b4ba9b944fc0bcd694,
+        type: 3}
+    - target: {fileID: 2157285913289321901, guid: c3b45597258a3514c9456bef1b912a41,
+        type: 3}
+      propertyPath: serializeHelperPrefabDoor
+      value: 
+      objectReference: {fileID: 1197282889400243123, guid: b6b6e619734aedb4d9618cbaf5a2d533,
         type: 3}
     - target: {fileID: 2157285913289321899, guid: c3b45597258a3514c9456bef1b912a41,
         type: 3}
