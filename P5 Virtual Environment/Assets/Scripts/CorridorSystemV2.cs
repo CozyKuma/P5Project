@@ -283,6 +283,8 @@ public class CorridorSystemV2 : MonoBehaviour
         {
             GameObject tempObject = Instantiate(_doorPrefab, new Vector3(0, 0, 0), Quaternion.identity);
             tempObject.transform.parent = CorridorContainer.transform;
+            tempObject.transform.localScale = new Vector3(1, 1, 1);
+            //tempObject.transform.localScale = new Vector3((tempObject.transform.localScale.x * tempObject.transform.parent.transform.localScale.x), tempObject.transform.localScale.y, (tempObject.transform.localScale.z * tempObject.transform.parent.transform.localScale.z));
             var localPosition = type == typeOfCorridor.EXIT ? start : type == typeOfCorridor.ENTRANCE ? end : start;
             localPosition.x += localPosition.x > 0 ? -0.575f : 0.575f;
             tempObject.transform.localPosition = localPosition;
