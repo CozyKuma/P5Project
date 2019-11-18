@@ -20,6 +20,8 @@ public class RoomStateController : MonoBehaviour
 
     [SerializeField] private GameObject _DoorWallPrefab, _RoomWallPrefab;
     [SerializeField] private GameObject parentGameObject;
+
+    [SerializeField] private bool levelComplete = false;
     
 
     // Start is called before the first frame update
@@ -61,11 +63,6 @@ public class RoomStateController : MonoBehaviour
         }
     }
 
-    public static void PlaceDoor(Vector3 pos, Vector3 orientation)
-    {
-
-    }
-
     public void ActivateRoom(State roomToActivate)
     {
         oldState = currentState;
@@ -73,6 +70,7 @@ public class RoomStateController : MonoBehaviour
             roomToActivate == State.RoomState2 ? room2 : room3;
         roomObj.SetActive(true);
         currentState = roomToActivate;
+        ActivateRoomWalls();
     }
 
     public void DeactivateRoom(State roomToDeactivate)
@@ -80,6 +78,7 @@ public class RoomStateController : MonoBehaviour
         GameObject roomObj = roomToDeactivate == State.RoomState0 ? room0 : roomToDeactivate == State.RoomState1 ? room1 :
             roomToDeactivate == State.RoomState2 ? room2 : room3;
         roomObj.SetActive(false);
+        DeactivateRoomWalls();
     }
 
     public void ChangeState(State newState)
@@ -165,6 +164,67 @@ public class RoomStateController : MonoBehaviour
         {
             wall.transform.localScale = _RoomWallPrefab.transform.localScale;
             wall.SetActive(false);
+        }
+    }
+    
+    public void DeactivateRoomWalls()
+    {
+        foreach (var doorWall in DoorWalls)
+        {
+            doorWall.SetActive(false);
+        }
+
+        foreach (var wall in WallArray)
+        {
+            wall.SetActive(false);
+        }
+    }
+
+    public void ActivateRoomWalls()
+    {
+        foreach (var wall in WallArray)
+        {
+            wall.SetActive(true);
+        }
+
+        switch (CorridorSystem.exitQuad)
+        {
+            case 1:
+                DoorWalls[0].SetActive(true);
+                WallArray[0,1].SetActive(false);
+                break;
+            case 2:
+                DoorWalls[1].SetActive(true);
+                WallArray[0,0].SetActive(false);
+                break;
+            case 3:
+                DoorWalls[2].SetActive(true);
+                WallArray[3,0].SetActive(false);
+                break;
+            case 4:
+                DoorWalls[3].SetActive(true);
+                WallArray[3,1].SetActive(false);
+                break;
+        }
+        
+        switch (CorridorSystem.entranceQuad)
+        {
+            case 1:
+                DoorWalls[0].SetActive(true);
+                WallArray[0,1].SetActive(false);
+                break;
+            case 2:
+                DoorWalls[1].SetActive(true);
+                WallArray[0,0].SetActive(false);
+                break;
+            case 3:
+                DoorWalls[2].SetActive(true);
+                WallArray[3,0].SetActive(false);
+                break;
+            case 4:
+                DoorWalls[3].SetActive(true);
+                WallArray[3,1].SetActive(false);
+                break;
         }
     }
 }
