@@ -8,6 +8,8 @@ public class addDrain : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
        animator.SetTrigger("Drain"); 
+       var flameParticle = GameObject.Find("flame");
+       flameParticle.GetComponent<ParticleSystem>().Stop();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -8,6 +8,8 @@ public class addFill : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetTrigger("Fill");
+        var flameParticle = GameObject.Find("flame");
+        flameParticle.GetComponent<ParticleSystem>().Play();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
