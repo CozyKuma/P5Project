@@ -10,7 +10,6 @@ public class TileRes : MonoBehaviour
     public List<GameObject> tileList = new List<GameObject>();
     private List<GameObject> goodTiles = new List<GameObject>();
     private Animator thisAnim;
-    private GameObject flameParticle;
 
     private List<GameObject> goodPressedTiles = new List<GameObject>();
     void Start()
@@ -24,8 +23,6 @@ public class TileRes : MonoBehaviour
                 goodTiles.Add(obj);
             }
         }
-
-        //flameParticle = GameObject.Find("flame");
         GameObject waterObj = GameObject.Find("WaterBasicDaytime");
         thisAnim = waterObj.GetComponent<Animator>();
         
@@ -52,7 +49,6 @@ public class TileRes : MonoBehaviour
             {
                 goodPressedTiles.Add(obj);
                 thisAnim.SetTrigger("Drain"); //Drains the object of water
-                //flameParticle.SetActive(true);
             }
         }
     }
@@ -70,7 +66,6 @@ public class TileRes : MonoBehaviour
             //Clears the "goodPressedTiles" list and fill the object with water
             goodPressedTiles.Clear();
             thisAnim.SetTrigger("Fill");
-            //flameParticle.SetActive(false);
         }
     }
 
