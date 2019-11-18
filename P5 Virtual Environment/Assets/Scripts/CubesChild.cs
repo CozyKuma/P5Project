@@ -1,9 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 public class CubesChild : MonoBehaviour
 {
     public bool good, pressed;
     public float pressedPos = -1.265f;
     public float zeroPos = -1.25f;
+    
+
+    AudioSource audioData;
+
     void Update()
     { //In case the player collides with an incorrect tile, this if-statement is true.
         if (GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().tileState == false && GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().winState == false)
@@ -28,6 +33,9 @@ public class CubesChild : MonoBehaviour
             if (good)
             {
                 //If the player hits a tile, where the "good" boolean is true, the "tilestate" is set to true and the tile is lowered
+                audioData = GetComponent<AudioSource>();
+                audioData.Play(0);
+                
                 GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().tileState = true;
                 transform.parent.localPosition = new Vector3(transform.parent.localPosition.x, pressedPos, transform.parent.localPosition.z);
             }
