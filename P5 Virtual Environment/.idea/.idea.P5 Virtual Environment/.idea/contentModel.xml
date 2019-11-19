@@ -77,6 +77,7 @@
           <e p="CorridorTrigger.cs" t="Include" />
           <e p="CubesChild.cs" t="Include" />
           <e p="DoorActivation.cs" t="Include" />
+          <e p="DoorTrigger.cs" t="Include" />
           <e p="Editor" t="Include">
             <e p="PopulateGrid.cs" t="Include" />
           </e>

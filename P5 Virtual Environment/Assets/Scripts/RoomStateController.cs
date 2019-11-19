@@ -109,19 +109,19 @@ public class RoomStateController : MonoBehaviour
         return currentState;
     }
 
-    public void RoomComplete()
+    public bool GetLevelComplete()
     {
-        Debug.Log("LEVEL COMPLETE!");
-        LevelTransition();
+        return levelComplete;
     }
 
-    public void LevelTransition()
+    public void SetLevelComplete()
     {
-        // Open Door to Corridor if Object is not close to door
-        
-        // When player in Corridor, Remove Room
+        levelComplete = !levelComplete;
+    }
 
-        // When player is in SIDE2 Corridor, Place next roomstate (NextState())
+    public void SetLevelComplete(bool myBool)
+    {
+        levelComplete = myBool;
     }
 
     public void CreateRoomWalls()

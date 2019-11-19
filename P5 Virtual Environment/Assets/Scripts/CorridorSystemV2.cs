@@ -291,6 +291,8 @@ public class CorridorSystemV2 : MonoBehaviour
             tempObject.transform.localPosition = new Vector3(localPosition.x, 1, localPosition.z);
             tempObject.transform.Rotate(0, 90, 0);
             doorObject = tempObject;
+            var doorTriggerComponent = doorObject.GetComponent<DoorTrigger>() != null ? tempObject.GetComponent<DoorTrigger>() : doorObject.AddComponent<DoorTrigger>();
+            doorTriggerComponent.typeOfDoor = type;
         }
 
         public static void CreateCorridorBetween(Vector3 start, Vector3 end, typeOfCorridor type, bool standardCorridor = true) // Instantiates the prefab of a specific size to work as a corridor.
