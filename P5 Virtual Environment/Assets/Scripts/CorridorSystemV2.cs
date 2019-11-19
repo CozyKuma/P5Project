@@ -180,7 +180,7 @@ public class CorridorSystemV2 : MonoBehaviour
                 Material tempRenderer = wall.GetComponent<Renderer>().material;
                 tempRenderer.mainTextureScale = new Vector2(Mathf.Max(6 * wall.transform.localScale.z - 2 * CorridorScale.z, 1), 6);
                 tempRenderer.SetTextureScale("_DetailAlbedoMap", new Vector2(Mathf.Max(2 * wall.transform.localScale.z - 2 * CorridorScale.z, 1), 2));
-                tempRenderer.SetTextureOffset("_DetailAlbedoMap", new Vector2(0, 0.75f));
+                tempRenderer.SetTextureOffset("_DetailAlbedoMap", new Vector2(0, 0f));
             }
         }
 
@@ -283,11 +283,12 @@ public class CorridorSystemV2 : MonoBehaviour
         {
             GameObject tempObject = Instantiate(_doorPrefab, new Vector3(0, 0, 0), Quaternion.identity);
             tempObject.transform.parent = CorridorContainer.transform;
-            tempObject.transform.localScale = new Vector3(1, 1, 1);
+            tempObject.transform.localScale = _doorPrefab.transform.localScale;
             //tempObject.transform.localScale = new Vector3((tempObject.transform.localScale.x * tempObject.transform.parent.transform.localScale.x), tempObject.transform.localScale.y, (tempObject.transform.localScale.z * tempObject.transform.parent.transform.localScale.z));
             var localPosition = type == typeOfCorridor.EXIT ? start : type == typeOfCorridor.ENTRANCE ? end : start;
             localPosition.x += localPosition.x > 0 ? -0.575f : 0.575f;
             tempObject.transform.localPosition = localPosition;
+            tempObject.transform.localPosition = new Vector3(localPosition.x, 1, localPosition.z);
             tempObject.transform.Rotate(0, 90, 0);
             doorObject = tempObject;
         }
