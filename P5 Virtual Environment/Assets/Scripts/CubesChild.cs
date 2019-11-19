@@ -13,23 +13,24 @@ public class CubesChild : MonoBehaviour
     {
         manager = GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>();
         parentMaterial = gameObject.GetComponentsInParent<Renderer>()[1].material;
+        parentPos = transform.parent.localPosition;
     }
 
-    void Update()
-    { //In case the player collides with an incorrect tile, this if-statement is true.
+    private void Update()
+    {
+    }
+
+    public void Reset()
+    {
         if (manager.tileState == false && manager.winState == false)
-        {
+        {//In case the player collides with an incorrect tile, this if-statement is true.
             //Resets the position of all tiles, so no tile is lowered.
-            parentPos = transform.parent.localPosition;
-            parentPos = new Vector3(parentPos.x, zeroPos, parentPos.z);
+            transform.parent.localPosition = new Vector3(parentPos.x, zeroPos, parentPos.z);
             pressed = false;
+            parentMaterial.DisableKeyword("_EMISSION");
         }
     }
-    // Disables emission 
-    public void EmissionOff()
-    {
-        parentMaterial.DisableKeyword("_EMISSION");
-    }
+
     //Checks if something (in this case, the player), collides with the collision trigger over the tiles
     public void OnTriggerEnter(Collider collision)
     {
@@ -47,8 +48,7 @@ public class CubesChild : MonoBehaviour
                 //If the player hits a tile, where the "good" boolean is true, the "tilestate" is set to true, the tile is lowered, and emission is enabled on the parent
                 manager.tileState = true;
                 parentMaterial.EnableKeyword("_EMISSION");
-                parentPos = transform.parent.localPosition;
-                parentPos = new Vector3(parentPos.x, pressedPos, parentPos.z);
+                transform.parent.localPosition = new Vector3(parentPos.x, pressedPos, parentPos.z);
             }
         }
     }

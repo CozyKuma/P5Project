@@ -27,7 +27,7 @@ public class TileRes : MonoBehaviour
         thisAnim = waterObj.GetComponent<Animator>();
         
     }
-    void FixedUpdate()
+    private void Update()
     { 
         checkGoodTilesPressed();
         resetList();
@@ -57,7 +57,7 @@ public class TileRes : MonoBehaviour
             foreach (CubesChild obj in goodPressedTiles)
             {
                 obj.pressed = false;
-                obj.EmissionOff();
+                obj.Reset();
             }
             //Clears the "goodPressedTiles" list and fill the object with water
             goodPressedTiles.Clear();
