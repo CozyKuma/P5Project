@@ -12,7 +12,8 @@ public class TileRes : MonoBehaviour
 
     private List<GameObject> goodPressedTiles = new List<GameObject>();
     void Start()
-    {  //Loops through all tiles
+    {  
+        //Loops through all tiles
         foreach (GameObject obj in tileList)
         {   //Checks each tile if they are supposed to be pressed, if they are, they are added to a list called "goodTiles"
             CubesChild tempCube = obj.GetComponentInChildren<CubesChild>();
@@ -22,7 +23,6 @@ public class TileRes : MonoBehaviour
                 goodTiles.Add(obj);
             }
         }
-        
     }
     void FixedUpdate()
     { 
@@ -31,9 +31,10 @@ public class TileRes : MonoBehaviour
         winCondition();
       //  print("GoodPressedTiles: " + goodPressedTiles.Count);
     }
-    void win()
+    void completePuzzle()
     {
-        print("Ez win");
+        print("Tile Puzzle Ez win");
+        
     }
 
     void checkGoodTilesPressed()
@@ -69,7 +70,7 @@ public class TileRes : MonoBehaviour
         if (goodTiles.Count == goodPressedTiles.Count)
         {
             winState = true;
-            win();
+            completePuzzle();
         }
     }
 }

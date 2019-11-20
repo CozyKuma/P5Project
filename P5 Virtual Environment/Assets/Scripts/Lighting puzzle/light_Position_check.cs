@@ -17,12 +17,15 @@ public class light_Position_check : MonoBehaviour
     private Vector3 rotationMin;
     
     private bool solved = false;
+    private RoomStateController roomStateController;
+    [SerializeField] private GameObject CorrSystem;
 
     // Start is called before the first frame update
     void Start()
     {
         destinationLightPosition = destinationLight.transform.position;
         destinationLightRotation = destinationLight.transform.eulerAngles;
+        roomStateController = CorrSystem.GetComponent<RoomStateController>();
     }
 
     // Update is called once per frame
@@ -30,7 +33,6 @@ public class light_Position_check : MonoBehaviour
     {
         Vector3 playerLightPosition = transform.position;
         Vector3 playerLightRotation = transform.eulerAngles;
-        
 
         float angleDifX = 
             Mathf.Abs(Mathf.DeltaAngle(playerLightRotation.x, destinationLightRotation.x));
@@ -39,14 +41,14 @@ public class light_Position_check : MonoBehaviour
 
         if (angleDifX <= maxAngleDiviation && angleDifY <= maxAngleDiviation && Vector3.Distance(playerLightPosition, destinationLightPosition)<=range)
         {
-            solved = true;
-            print(solved);
+            completePuzzle();
         }
-        else
-        {
-            solved = false;
-        }
+    }
 
+    private void completePuzzle()
+    {
+        solved = true;
+        roomStateController.SetLevelComplete(true);
     }
 }
 
