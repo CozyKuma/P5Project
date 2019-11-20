@@ -2,17 +2,22 @@
 using UnityEngine;
 public class ObjectScript3Acti : MonoBehaviour
 {
-    public bool fireSolved, waterSolved, doorOpened;
+    public bool fireSolved, waterSolved;
     public bool redActive, greenActive, blueActive;
     public BallScript ball;
     //public GameObject door;
-    public float height, doorSpeed;
-    private float counter;
+    
+    private RoomStateController roomStateController;
+    [SerializeField] private GameObject CorrSystem;
     
 
     private void Start()
     {
-        counter = 0;
+        if (CorrSystem == null)
+        {
+            CorrSystem = GameObject.Find("CorridorSystem");
+        }
+        roomStateController = CorrSystem.GetComponent<RoomStateController>();
     }
 
     void OnTriggerEnter(Collider collision)
@@ -44,20 +49,19 @@ public class ObjectScript3Acti : MonoBehaviour
                 greenActive = ball.GetConditionsRGB()[1];
                 if (fireSolved == true && waterSolved == true && greenActive == true)
                 {
-                    doorOpened = true;
                     print("door open");
+                    completePuzzle();
                 }
                 break;
         }
     }
     void Update()
     {
-        /*if (doorOpened && counter < height)
-        {
-            Vector3 temp = door.transform.position;
-            temp.y += doorSpeed;
-            door.transform.position = temp;
-            counter += doorSpeed;
-        }*/
+
+    }
+
+    [SerializeField] private void completePuzzle()
+    {
+        roomStateController.SetLevelComplete(true);
     }
 }
