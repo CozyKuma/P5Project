@@ -13,6 +13,10 @@ public class ObjectScript3Acti : MonoBehaviour
 
     private void Start()
     {
+        if (CorrSystem == null)
+        {
+            CorrSystem = GameObject.Find("CorridorSystem");
+        }
         roomStateController = CorrSystem.GetComponent<RoomStateController>();
     }
 
@@ -56,7 +60,7 @@ public class ObjectScript3Acti : MonoBehaviour
 
     }
 
-    private void completePuzzle()
+    [SerializeField] private void completePuzzle()
     {
         roomStateController.SetLevelComplete(true);
     }

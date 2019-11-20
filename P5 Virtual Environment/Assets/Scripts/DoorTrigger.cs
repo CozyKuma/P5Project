@@ -15,13 +15,16 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] private float distanceFromPlayer;
     [SerializeField] private float distanceFromTrackedObjectThreshold = 1.5f;
     [SerializeField] private float distanceFromTrackedObject;
+    [SerializeField] private float distanceFromCenterThreshold = 0.2f;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject trackedObject;
+    [SerializeField] private GameObject roomCenterObject;
     
     // Start is called before the first frame update
     void Start()
     {
         originalPosition = transform.position;
+        roomCenterObject = GameObject.Find("CorridorSystemCenter");
         CorrSystem = GameObject.Find("CorridorSystem").GetComponent<CorridorSystemV2>();
         roomStateController = GameObject.Find("CorridorSystem").GetComponent<RoomStateController>();
         if (player != null) return;
@@ -44,6 +47,12 @@ public class DoorTrigger : MonoBehaviour
                    distanceFromTrackedObject > distanceFromTrackedObjectThreshold)
         {
             OpenDoor();
+        } else if (typeOfDoor == CorridorSystemV2.Corridor.typeOfCorridor.ENTRANCE &&
+                   (Vector3.Distance(player.transform.position, roomCenterObject.transform.position) +
+                    distanceFromCenterThreshold
+                    < Vector3.Distance(originalPosition, roomCenterObject.transform.position)))
+        {
+            LockDoor();
         }
         else
         {
@@ -77,6 +86,17 @@ public class DoorTrigger : MonoBehaviour
             transform.position = new Vector3(transform.position.x, originalPosition.y, transform.position.z);
         }
     }
-    
-    
+
+    private void LockDoor()
+    {
+        doorOpened = false;
+        if (!(transform.position.y > originalPosition.y)) return;
+        Vector3 temp = transform.position;
+        temp.y -= doorSpeed * Time.deltaTime;
+        transform.position = temp;
+        if ((transform.position.y - originalPosition.y) < doorSpeed * Time.deltaTime)
+        {
+            transform.position = new Vector3(transform.position.x, originalPosition.y, transform.position.z);
+        }
+    }
 }

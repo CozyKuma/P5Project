@@ -23,6 +23,10 @@ public class light_Position_check : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (CorrSystem == null)
+        {
+            CorrSystem = GameObject.Find("CorridorSystem");
+        }
         destinationLightPosition = destinationLight.transform.position;
         destinationLightRotation = destinationLight.transform.eulerAngles;
         roomStateController = CorrSystem.GetComponent<RoomStateController>();

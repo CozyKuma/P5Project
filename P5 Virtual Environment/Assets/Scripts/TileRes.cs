@@ -19,8 +19,16 @@ public class TileRes : MonoBehaviour
     private Animator thisAnim;
 
     private List<CubesChild> goodPressedTiles = new List<CubesChild>();
+    
+    public GameObject CorrSystem;
+    public RoomStateController roomStateController;
     void Start()
-    {  
+    {
+        if (CorrSystem == null)
+        {
+            CorrSystem = GameObject.Find("CorridorSystem");
+        }
+        roomStateController = GameObject.Find("CorridorSystem").GetComponent<RoomStateController>();
         //Loops through all tiles
         foreach (GameObject obj in tileList)
         {   //Checks each tile if they are supposed to be pressed, if they are, they are added to a list called "goodTiles"
@@ -33,8 +41,9 @@ public class TileRes : MonoBehaviour
         }
         GameObject waterObj = GameObject.Find("WaterBasicDaytime");
         thisAnim = waterObj.GetComponent<Animator>();
-
+    
     }
+    
     private void Update()
     { 
         checkGoodTilesPressed();
@@ -42,10 +51,11 @@ public class TileRes : MonoBehaviour
         winCondition();
       //  print("GoodPressedTiles: " + goodPressedTiles.Count);
     }
+    
     void completePuzzle()
     {
         print("Tile Puzzle Ez win");
-        
+        roomStateController.SetLevelComplete(true);
     }
 
     void checkGoodTilesPressed()
@@ -99,9 +109,5 @@ public class TileRes : MonoBehaviour
             winState = true;
             completePuzzle();
         }
-    }
-    void win()
-    {
-        print("Ez win");
     }
 }
