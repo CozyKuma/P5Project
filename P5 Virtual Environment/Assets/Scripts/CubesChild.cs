@@ -5,19 +5,35 @@ public class CubesChild : MonoBehaviour
     public bool good, pressed;
     public float pressedPos = -1.265f;
     public float zeroPos = -1.25f;
+    private Vector3 parentPos;
+    private TileRes manager;
+    private Material parentMaterial;
+    
+    AudioSource audioData;
     
 
-    AudioSource audioData;
+    private void Start()
+    {
+        manager = GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>();
+        parentMaterial = gameObject.GetComponentsInParent<Renderer>()[1].material;
+        parentPos = transform.parent.localPosition;
+    }
 
-    void Update()
-    { //In case the player collides with an incorrect tile, this if-statement is true.
-        if (GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().tileState == false && GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().winState == false)
-        {
+    private void Update()
+    {
+    }
+
+    public void Reset()
+    {
+        if (manager.tileState == false && manager.winState == false)
+        {//In case the player collides with an incorrect tile, this if-statement is true.
             //Resets the position of all tiles, so no tile is lowered.
-            transform.parent.localPosition = new Vector3(transform.parent.localPosition.x, zeroPos, transform.parent.localPosition.z);
+            transform.parent.localPosition = new Vector3(parentPos.x, zeroPos, parentPos.z);
             pressed = false;
+            parentMaterial.DisableKeyword("_EMISSION");
         }
     }
+
     //Checks if something (in this case, the player), collides with the collision trigger over the tiles
     public void OnTriggerEnter(Collider collision)
     {
@@ -28,17 +44,17 @@ public class CubesChild : MonoBehaviour
             if (good == false)
             {
                 //If the player hits a tile, where the "good" boolean is false, the "tilestate" is set to false, which activates line 8
-                GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().tileState = false;
+                manager.tileState = false;
             }
             if (good)
             {
+                //If the player hits a tile, where the "good" boolean is true, the "tilestate" is set to true, the tile is lowered, and emission is enabled on the parent
+                manager.tileState = true;
+                parentMaterial.EnableKeyword("_EMISSION");
+                transform.parent.localPosition = new Vector3(parentPos.x, pressedPos, parentPos.z);
                 //If the player hits a tile, where the "good" boolean is true, the "tilestate" is set to true and the tile is lowered
                 audioData = GetComponent<AudioSource>();
                 audioData.Play(0);
-                
-                GameObject.Find("/ScaleContainer/FloorTiles/Map").GetComponent<TileRes>().tileState = true;
-                gameObject.GetComponentsInParent<Renderer>()[1].material.EnableKeyword("_EMISSION");
-                transform.parent.localPosition = new Vector3(transform.parent.localPosition.x, pressedPos, transform.parent.localPosition.z);
             }
         }
     }
