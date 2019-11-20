@@ -11,12 +11,15 @@ public class DoorActivation : MonoBehaviour
     public GameObject gameObject;
 
     private Vector3 originalPosition;
+    
+    AudioSource audioData;
 
 
     // Start is called before the first frame update
     void Start()
     {
         originalPosition = transform.position;
+        audioData = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class DoorActivation : MonoBehaviour
     {
         if (doorOpened && counter < height)
         {
+            audioData.Play(0);
             Vector3 temp = transform.position;
             temp.y += doorSpeed;
             transform.position = temp;
@@ -31,6 +35,7 @@ public class DoorActivation : MonoBehaviour
         }
         else if (!doorOpened && counter == height)
         {
+            audioData.Play(0);
             transform.position = originalPosition;
             counter = 0;
         }
@@ -40,6 +45,8 @@ public class DoorActivation : MonoBehaviour
     {
         if (doorOpened && counter < height)
         {
+            
+            audioData.Play(0);
             Vector3 temp = transform.position;
             temp.y += doorSpeed;
             transform.position = temp;
@@ -47,6 +54,7 @@ public class DoorActivation : MonoBehaviour
         }
         else if (!doorOpened && counter == height)
         {
+            audioData.Play(0);
             transform.position = originalPosition;
             counter = 0;
         }

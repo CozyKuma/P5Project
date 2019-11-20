@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1742145893047828413, guid: 559942bf977285d4984a9e588d131d8d,
         type: 3}
       propertyPath: m_Name
-      value: BallMaze
+      value: BallMaze Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3347865217443007918, guid: 559942bf977285d4984a9e588d131d8d,
         type: 3}
@@ -176,7 +176,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 38360d8a39c32174497e6035252ba32d, type: 2}
+      objectReference: {fileID: 2100000, guid: 16d194deb5ffa244ba212cbec269d52f, type: 2}
     - target: {fileID: 6633745633555638504, guid: 559942bf977285d4984a9e588d131d8d,
         type: 3}
       propertyPath: m_Size.z
@@ -196,17 +196,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3d5c0a99bb8b30542960495b864064be, type: 2}
+      objectReference: {fileID: 2100000, guid: 60aa955f4b7b03542b87a7b64aea52ad, type: 2}
     - target: {fileID: 7713739701814663854, guid: 559942bf977285d4984a9e588d131d8d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0c5c6ba57b1f80342a770b23b122d4c9, type: 2}
+      objectReference: {fileID: 2100000, guid: ad3d5a631f90f9c49aa9bf09c3517339, type: 2}
     - target: {fileID: 7713739702000929751, guid: 559942bf977285d4984a9e588d131d8d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 282ed23447c657649853698e00160878, type: 2}
+      objectReference: {fileID: 2100000, guid: 0615c1904a345d042b60b5c70a545a2d, type: 2}
     - target: {fileID: 7713739702739816826, guid: 559942bf977285d4984a9e588d131d8d,
         type: 3}
       propertyPath: m_Enabled
