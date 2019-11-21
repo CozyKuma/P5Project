@@ -21,7 +21,7 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] private GameObject roomCenterObject;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         originalPosition = transform.position;
         roomCenterObject = GameObject.Find("CorridorSystemCenter");
