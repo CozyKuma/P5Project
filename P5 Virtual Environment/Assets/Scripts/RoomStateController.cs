@@ -21,6 +21,7 @@ public class RoomStateController : MonoBehaviour
     [SerializeField] private GameObject _DoorWallPrefab, _RoomWallPrefab;
     [SerializeField] private GameObject parentGameObject;
     [SerializeField] private GameObject globalFloor;
+    [SerializeField] private GameObject CorridorRoof;
 
     [SerializeField] private bool levelComplete = false;
     
@@ -60,6 +61,7 @@ public class RoomStateController : MonoBehaviour
             if (currentState == State.RoomState1)
             {
                 CorridorSystem.GenerateInitialSetup();
+                CorridorRoof.SetActive(true);
             }
         }
     }
@@ -127,16 +129,16 @@ public class RoomStateController : MonoBehaviour
     public void CreateRoomWalls()
     {
         // Door Room Walls
-        GameObject DoorWall1 = Instantiate(_DoorWallPrefab, Vector3.zero, Quaternion.identity, parentGameObject.transform);
+        GameObject DoorWall1 = Instantiate(_DoorWallPrefab, Vector3.zero, Quaternion.Euler(0, 90, 0), parentGameObject.transform);
         //DoorWall1.transform.parent = parentGameObject.transform;
         DoorWall1.transform.localPosition = new Vector3(1.625f, 4f, -1.75f / 2f);
-        GameObject DoorWall2 = Instantiate(_DoorWallPrefab, Vector3.zero, Quaternion.identity, parentGameObject.transform);
+        GameObject DoorWall2 = Instantiate(_DoorWallPrefab, Vector3.zero, Quaternion.Euler(0, 90, 0), parentGameObject.transform);
         //DoorWall2.transform.parent = parentGameObject.transform;
         DoorWall2.transform.localPosition = new Vector3(1.625f, 4f, 1.75f / 2f);
-        GameObject DoorWall3 = Instantiate(_DoorWallPrefab, Vector3.zero, Quaternion.identity, parentGameObject.transform);
+        GameObject DoorWall3 = Instantiate(_DoorWallPrefab, Vector3.zero, Quaternion.Euler(0, 90, 0), parentGameObject.transform);
         //DoorWall3.transform.parent = parentGameObject.transform;
         DoorWall3.transform.localPosition = new Vector3(-1.625f, 4f, 1.75f / 2f);
-        GameObject DoorWall4 = Instantiate(_DoorWallPrefab, Vector3.zero, Quaternion.identity, parentGameObject.transform);
+        GameObject DoorWall4 = Instantiate(_DoorWallPrefab, Vector3.zero, Quaternion.Euler(0, 90, 0), parentGameObject.transform);
         //DoorWall4.transform.parent = parentGameObject.transform;
         DoorWall4.transform.localPosition = new Vector3(-1.625f, 4f, -1.75f / 2f);
         DoorWalls.Add(DoorWall1);
