@@ -439,7 +439,7 @@ public class CorridorSystemV2 : MonoBehaviour
         
         
         // Create the point from which to build the initial exit.
-        CorridorSystemV2.listOfPoints.Add(GetQuadrantBasedPosition(2)); // First exit
+        listOfPoints.Add(GetQuadrantBasedPosition(2)); // First exit
         Corridor.SetLastPosition(Corridor.lastPosition.LEFT);
 
         GenerateExit();

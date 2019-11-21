@@ -5,6 +5,9 @@ using UnityEngine;
 public class RoomStateController : MonoBehaviour
 {
 
+    public delegate void RoomSpawnDelegate();
+    public event RoomSpawnDelegate onRoomActivateEvent;
+    
     public enum State { RoomState0, RoomState1, RoomState2, RoomState3 }
 
     public CorridorSystemV2 CorridorSystem;
@@ -22,6 +25,7 @@ public class RoomStateController : MonoBehaviour
     [SerializeField] private GameObject parentGameObject;
     [SerializeField] private GameObject globalFloor;
     [SerializeField] private GameObject CorridorRoof;
+    [SerializeField] private RoomStateController roomStateController;
 
     [SerializeField] private bool levelComplete = false;
     
@@ -30,6 +34,8 @@ public class RoomStateController : MonoBehaviour
     void Start()
     {
         parentGameObject = GameObject.Find("ScaleContainer");
+        roomStateController = GameObject.Find("CorridorSystem").GetComponent<RoomStateController>();
+
         CreateRoomWalls();
 
         ActivateRoom(getCurrentState());
@@ -76,6 +82,15 @@ public class RoomStateController : MonoBehaviour
         if (currentState == State.RoomState0) return;
         ActivateRoomWalls();
         globalFloor.SetActive(true);
+        if (onRoomActivateEvent != null)
+        {
+            onRoomActivateEvent();
+            Debug.Log("On Room Activate Event Called");
+        }
+        else
+        {
+            Debug.Log("No Event Called - Null");
+        }
     }
 
     public void DeactivateRoom(State roomToDeactivate)

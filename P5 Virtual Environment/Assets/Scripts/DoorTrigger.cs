@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,8 +20,21 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject trackedObject;
     [SerializeField] private GameObject roomCenterObject;
+    private bool trackedObjectBool = false; 
     
     // Start is called before the first frame update
+    private void Start()
+    {
+        trackedObject = GameObject.FindWithTag("TrackedObject");
+        if (trackedObject != null)
+        {
+            trackedObjectBool = true;
+        } else if (trackedObject == null)
+        {
+            roomStateController.onRoomActivateEvent += SetTrackedObject;
+        }
+    }
+
     void Awake()
     {
         originalPosition = transform.position;
@@ -29,13 +43,14 @@ public class DoorTrigger : MonoBehaviour
         roomStateController = GameObject.Find("CorridorSystem").GetComponent<RoomStateController>();
         if (player != null) return;
         player = !usePrototypeCharacter ? GameObject.Find("Player") : GameObject.Find("PrototypePlayerCharacter");
-        if (trackedObject != null) return;
-        trackedObject = GameObject.FindGameObjectWithTag("TrackedObject");
+        /*if (trackedObject != null) return;
+        trackedObject = GameObject.FindGameObjectWithTag("TrackedObject");*/
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!trackedObjectBool) return;
         distanceFromTrackedObject = Vector3.Distance(originalPosition, trackedObject.transform.position);
         distanceFromPlayer = Vector3.Distance(originalPosition, player.transform.position);
         if (typeOfDoor == CorridorSystemV2.Corridor.typeOfCorridor.ENTRANCE &&
@@ -98,5 +113,13 @@ public class DoorTrigger : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, originalPosition.y, transform.position.z);
         }
+    }
+
+    public void SetTrackedObject()
+    {
+        Debug.Log("Setting Tracked Object");
+        roomStateController.onRoomActivateEvent -= SetTrackedObject;
+        trackedObject = GameObject.FindWithTag("TrackedObject");
+        trackedObjectBool = true;
     }
 }
