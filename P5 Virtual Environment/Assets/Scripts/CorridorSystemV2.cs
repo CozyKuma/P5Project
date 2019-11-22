@@ -502,6 +502,7 @@ public class CorridorSystemV2 : MonoBehaviour
     {
         physObjQuad = UpdatePhysObjQuad(); // Used to calculate where the bridge should "cross" the room.
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE1);
+        Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE2);
         listOfPoints.Add(exitCorner);
         
         Debug.Log(Corridor.GetLastPosition());
