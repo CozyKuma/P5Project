@@ -24,8 +24,8 @@ public class RoomStateController : MonoBehaviour
     [SerializeField] private GameObject _DoorWallPrefab, _RoomWallPrefab;
     [SerializeField] private GameObject parentGameObject;
     [SerializeField] private GameObject globalFloor;
-    [SerializeField] private GameObject CorridorRoof;
-    [SerializeField] private RoomStateController roomStateController;
+    [SerializeField] private GameObject CorridorRoofHole;
+    [SerializeField] private GameObject CorridorRoofFull;
 
     [SerializeField] private bool levelComplete = false;
     
@@ -34,7 +34,6 @@ public class RoomStateController : MonoBehaviour
     void Start()
     {
         parentGameObject = GameObject.Find("ScaleContainer");
-        roomStateController = GameObject.Find("CorridorSystem").GetComponent<RoomStateController>();
 
         CreateRoomWalls();
 
@@ -67,7 +66,7 @@ public class RoomStateController : MonoBehaviour
             if (currentState == State.RoomState1)
             {
                 CorridorSystem.GenerateInitialSetup();
-                CorridorRoof.SetActive(true);
+                CorridorRoofHole.SetActive(true);
             }
         }
     }
@@ -81,6 +80,8 @@ public class RoomStateController : MonoBehaviour
         currentState = roomToActivate;
         if (currentState == State.RoomState0) return;
         ActivateRoomWalls();
+        CorridorRoofFull.SetActive(false);
+        CorridorRoofHole.SetActive(true);
         globalFloor.SetActive(true);
         if (onRoomActivateEvent != null)
         {
@@ -99,6 +100,8 @@ public class RoomStateController : MonoBehaviour
             roomToDeactivate == State.RoomState2 ? room2 : room3;
         roomObj.SetActive(false);
         DeactivateRoomWalls();
+        CorridorRoofHole.SetActive(false);
+        CorridorRoofFull.SetActive(true);
     }
 
     public void ChangeState(State newState)
