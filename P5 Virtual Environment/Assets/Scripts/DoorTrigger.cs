@@ -5,22 +5,25 @@ using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour
 {
-    [SerializeField] private bool usePrototypeCharacter = true;
+    [SerializeField] private bool usePrototypeCharacter = false;
     public CorridorSystemV2.Corridor.typeOfCorridor typeOfDoor;
     public CorridorSystemV2 CorrSystem;
     public RoomStateController roomStateController;
     public float doorSpeed = 1.4f, height = 3f;
     public bool doorOpened = true;
     private Vector3 originalPosition;
-    [SerializeField] private float distanceFromPlayerThreshold = 0.85f;
+    [SerializeField] private float distanceFromPlayerThreshold = 1.4f;
     [SerializeField] private float distanceFromPlayer;
-    [SerializeField] private float distanceFromTrackedObjectThreshold = 1.5f;
+    [SerializeField] private float distanceFromTrackedObjectThreshold = 1.8f;
     [SerializeField] private float distanceFromTrackedObject;
     [SerializeField] private float distanceFromCenterThreshold = 0.2f;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject trackedObject;
     [SerializeField] private GameObject roomCenterObject;
-    private bool trackedObjectBool = false; 
+    private bool trackedObjectBool = false;
+    
+    AudioSource audioData;
+
     
     // Start is called before the first frame update
     private void Start()
@@ -33,6 +36,8 @@ public class DoorTrigger : MonoBehaviour
         {
             roomStateController.onRoomActivateEvent += SetTrackedObject;
         }
+        
+        audioData = GetComponent<AudioSource>();
     }
 
     void Awake()
@@ -82,6 +87,7 @@ public class DoorTrigger : MonoBehaviour
         {
             temp.y += doorSpeed * Time.deltaTime;
             transform.position = temp;
+            audioData.Play(0);
             //counter += doorSpeed * Time.deltaTime;
             if ((height - transform.position.y) < doorSpeed * Time.deltaTime)
             {
