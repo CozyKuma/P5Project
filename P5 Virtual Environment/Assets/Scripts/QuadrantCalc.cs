@@ -6,7 +6,7 @@ public class QuadrantCalc : MonoBehaviour
 {
 
     public GameObject parentObject;
-    public GameObject physObject;
+    public  GameObject physObject;
     public int oldQuadrant = 0;
     public int newQuadrant;
 

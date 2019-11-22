@@ -326,7 +326,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: a954ccfe1f67df24c89d60dc6d09ea77,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.9957
+      value: -0.9375
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a954ccfe1f67df24c89d60dc6d09ea77,
         type: 3}
@@ -336,7 +336,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: a954ccfe1f67df24c89d60dc6d09ea77,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0147
+      value: -0.9375
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a954ccfe1f67df24c89d60dc6d09ea77,
         type: 3}
@@ -2629,7 +2629,7 @@ Transform:
   - {fileID: 482413656}
   - {fileID: 1248174478}
   m_Father: {fileID: 1398384223}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &509451982
 PrefabInstance:
@@ -3705,7 +3705,7 @@ GameObject:
   - component: {fileID: 637845996}
   - component: {fileID: 637845995}
   m_Layer: 0
-  m_Name: CorridorRoof
+  m_Name: CorridorRoofHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5849,17 +5849,17 @@ PrefabInstance:
     - target: {fileID: 1246896969201956083, guid: a5bd30e56146a3c449470bebc519ce3c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.9375
       objectReference: {fileID: 0}
     - target: {fileID: 1246896969201956083, guid: a5bd30e56146a3c449470bebc519ce3c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.531
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1246896969201956083, guid: a5bd30e56146a3c449470bebc519ce3c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.271
+      value: -0.9375
       objectReference: {fileID: 0}
     - target: {fileID: 1246896969201956083, guid: a5bd30e56146a3c449470bebc519ce3c,
         type: 3}
@@ -5933,22 +5933,22 @@ PrefabInstance:
     - target: {fileID: 953038559943110146, guid: 370a05075dcdd6b418c9a455c36ca1b7,
         type: 3}
       propertyPath: m_TagString
-      value: TrackedObject
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4279130333053344785, guid: 370a05075dcdd6b418c9a455c36ca1b7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.92172
+      value: -0.9375
       objectReference: {fileID: 0}
     - target: {fileID: 4279130333053344785, guid: 370a05075dcdd6b418c9a455c36ca1b7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.666
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4279130333053344785, guid: 370a05075dcdd6b418c9a455c36ca1b7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.500975
+      value: -0.9375
       objectReference: {fileID: 0}
     - target: {fileID: 4279130333053344785, guid: 370a05075dcdd6b418c9a455c36ca1b7,
         type: 3}
@@ -5989,6 +5989,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812365333621744567, guid: 370a05075dcdd6b418c9a455c36ca1b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: TrackedObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 370a05075dcdd6b418c9a455c36ca1b7, type: 3}
@@ -6977,7 +6982,7 @@ Transform:
   - {fileID: 19131503}
   - {fileID: 1440119445}
   m_Father: {fileID: 1398384223}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &989444892
 PrefabInstance:
@@ -7579,7 +7584,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-160230
+  m_Name: pb_Mesh20592
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9200,7 +9205,7 @@ Transform:
   - {fileID: 648229573}
   - {fileID: 848569704}
   m_Father: {fileID: 1398384223}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1334770292
 GameObject:
@@ -9920,6 +9925,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 637845994}
+  - {fileID: 2009486900}
   - {fileID: 1531790777}
   - {fileID: 1321006036}
   - {fileID: 497256110}
@@ -10817,8 +10823,8 @@ MonoBehaviour:
     type: 3}
   parentGameObject: {fileID: 1398384222}
   globalFloor: {fileID: 1265627917}
-  CorridorRoof: {fileID: 637845993}
-  roomStateController: {fileID: 0}
+  CorridorRoofHole: {fileID: 637845993}
+  CorridorRoofFull: {fileID: 2009486899}
   levelComplete: 0
 --- !u!1 &1551929605
 GameObject:
@@ -11908,7 +11914,7 @@ PrefabInstance:
     - target: {fileID: 2157285913289321899, guid: c3b45597258a3514c9456bef1b912a41,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2157285913289321899, guid: c3b45597258a3514c9456bef1b912a41,
         type: 3}
@@ -12089,6 +12095,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2157285913350702936, guid: c3b45597258a3514c9456bef1b912a41,
+        type: 3}
+      propertyPath: m_Name
+      value: StartingObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b45597258a3514c9456bef1b912a41, type: 3}
@@ -12349,7 +12360,7 @@ Transform:
   - {fileID: 1102689167}
   - {fileID: 2076211652}
   m_Father: {fileID: 1398384223}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1852543196 stripped
 Transform:
@@ -13034,6 +13045,99 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001655431}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2009486899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2009486900}
+  - component: {fileID: 2009486903}
+  - component: {fileID: 2009486902}
+  - component: {fileID: 2009486901}
+  m_Layer: 0
+  m_Name: CorridorRoofFull
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2009486900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009486899}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 3.729199, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1398384223}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!64 &2009486901
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009486899}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2009486902
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009486899}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 0c5c6ba57b1f80342a770b23b122d4c9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &2009486903
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009486899}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2013224905
 GameObject:
   m_ObjectHideFlags: 0

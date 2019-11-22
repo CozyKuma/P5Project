@@ -11,6 +11,7 @@ public class RoomStateController : MonoBehaviour
     public enum State { RoomState0, RoomState1, RoomState2, RoomState3 }
 
     public CorridorSystemV2 CorridorSystem;
+    private QuadrantCalc QuandrantCalculator;
 
     public static State oldState = State.RoomState0;
     public static State currentState = State.RoomState0;
@@ -34,6 +35,7 @@ public class RoomStateController : MonoBehaviour
     void Start()
     {
         parentGameObject = GameObject.Find("ScaleContainer");
+        QuandrantCalculator = GameObject.Find("RoomParent").GetComponent<QuadrantCalc>();
 
         CreateRoomWalls();
 
@@ -82,6 +84,7 @@ public class RoomStateController : MonoBehaviour
         ActivateRoomWalls();
         CorridorRoofFull.SetActive(false);
         CorridorRoofHole.SetActive(true);
+        QuandrantCalculator.physObject = GameObject.FindWithTag("TrackedObject");
         globalFloor.SetActive(true);
         if (onRoomActivateEvent != null)
         {
