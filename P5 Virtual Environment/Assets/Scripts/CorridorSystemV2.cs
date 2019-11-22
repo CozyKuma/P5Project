@@ -9,6 +9,7 @@ public class CorridorSystemV2 : MonoBehaviour
 {
     public int entranceQuad = 4;
     public int exitQuad = 2;
+    private Vector3 exitCorner;
     public int physObjQuad;
     private static List<Vector3> listOfPoints = new List<Vector3>();
 
@@ -159,7 +160,7 @@ public class CorridorSystemV2 : MonoBehaviour
             }
             
             if (!standardCorridor) return;
-            if (type == typeOfCorridor.EXIT || type == typeOfCorridor.BRIDGE || type == typeOfCorridor.ENTRANCE)
+            if (type == typeOfCorridor.EXIT || type == typeOfCorridor.BRIDGE || type == typeOfCorridor.ENTRANCE || type == typeOfCorridor.SIDE1)
             {
                 CreateTrigger();
             }
@@ -272,7 +273,14 @@ public class CorridorSystemV2 : MonoBehaviour
         {
             GameObject tempObject = Instantiate(_triggerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
             tempObject.transform.parent = CorridorContainer.transform;
-            tempObject.transform.localPosition = center;
+            if (type == typeOfCorridor.EXIT || type == typeOfCorridor.SIDE1)
+            {
+                tempObject.transform.localPosition = new Vector3(start.x, _triggerPrefab.transform.localScale.y / 2, start.z);
+            }
+            else
+            {
+                tempObject.transform.localPosition = new Vector3(center.x, _triggerPrefab.transform.localScale.y / 2, center.z);
+            }
             triggerObject = tempObject;
             CorridorTrigger triggerComponent = tempObject.GetComponent<CorridorTrigger>();
             triggerComponent.activated = false;
@@ -449,7 +457,8 @@ public class CorridorSystemV2 : MonoBehaviour
     {
         exitQuad = QuadrantCalc.Quadrant.FindOpposite(entranceQuad);
         Corridor.CreateCorridorBetween(GetQuadrantBasedPosition(exitQuad, "horizontal"), GetQuadrantBasedCorner(QuadrantCalc.Quadrant.FindNeighbour(exitQuad)), Corridor.typeOfCorridor.EXIT);
-        listOfPoints.Add(GetQuadrantBasedCorner(QuadrantCalc.Quadrant.FindNeighbour(exitQuad)));
+        exitCorner = GetQuadrantBasedCorner(QuadrantCalc.Quadrant.FindNeighbour(exitQuad));
+        listOfPoints.Add(exitCorner);
         
         //Corridor.DestroyAllOfType(Corridor.typeOfCorridor.ENTRANCE);
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE1);
@@ -458,6 +467,46 @@ public class CorridorSystemV2 : MonoBehaviour
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.DEFAULT);
 
         physObjQuad = UpdatePhysObjQuad(); // Used to calculate where the bridge should "cross" the room.
+        
+        // TEMPORARY - From corner to bridge start
+        if (physObjQuad == 1 || physObjQuad == 2)
+        {
+            if (Corridor.GetLastPosition() == Corridor.lastPosition.RIGHT)
+            {
+                Corridor.CreateCorridorBetween(getLastListElement(listOfPoints), GetQuadrantBasedPosition(4, "vertical"), Corridor.typeOfCorridor.SIDE1);
+                listOfPoints.Add(GetQuadrantBasedPosition(4, "vertical"));
+            }
+            else if (Corridor.GetLastPosition() == Corridor.lastPosition.LEFT)
+            {
+                Corridor.CreateCorridorBetween(getLastListElement(listOfPoints), GetQuadrantBasedPosition(3, "vertical"), Corridor.typeOfCorridor.SIDE1);
+                listOfPoints.Add(GetQuadrantBasedPosition(3, "vertical"));
+            }
+        }
+        else if (physObjQuad == 3 || physObjQuad == 4)
+        {
+            if (Corridor.GetLastPosition() == Corridor.lastPosition.RIGHT)
+            {
+                Corridor.CreateCorridorBetween(getLastListElement(listOfPoints), GetQuadrantBasedPosition(1, "vertical"), Corridor.typeOfCorridor.SIDE1);
+                listOfPoints.Add(GetQuadrantBasedPosition(1, "vertical"));
+            }
+            else if (Corridor.GetLastPosition() == Corridor.lastPosition.LEFT)
+            {
+                Corridor.CreateCorridorBetween(getLastListElement(listOfPoints), GetQuadrantBasedPosition(2, "vertical"), Corridor.typeOfCorridor.SIDE1);
+                listOfPoints.Add(GetQuadrantBasedPosition(2, "vertical"));
+            }
+        }
+        
+    }
+
+    public void GenerateBridge()
+    {
+        physObjQuad = UpdatePhysObjQuad(); // Used to calculate where the bridge should "cross" the room.
+        Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE1);
+        listOfPoints.Add(exitCorner);
+        
+        Debug.Log(Corridor.GetLastPosition());
+        Debug.Log(listOfPoints[listOfPoints.Count - 1]);
+        Debug.Log(physObjQuad);
 
         // From corner to bridge start
         if (physObjQuad == 1 || physObjQuad == 2)
@@ -486,10 +535,7 @@ public class CorridorSystemV2 : MonoBehaviour
                 listOfPoints.Add(GetQuadrantBasedPosition(2, "vertical"));
             }
         }
-    }
-
-    public void GenerateBridge()
-    {
+        
         // bridge
         if (physObjQuad == 1 || physObjQuad == 2)
         {

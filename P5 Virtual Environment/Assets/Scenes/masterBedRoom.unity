@@ -914,6 +914,36 @@ PrefabInstance:
       propertyPath: m_TargetDisplay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6345966607236189357, guid: f3c8eb2bfc89c7b4380fd4d8755450bf,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345966607236189357, guid: f3c8eb2bfc89c7b4380fd4d8755450bf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345966607236189357, guid: f3c8eb2bfc89c7b4380fd4d8755450bf,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345966606219818830, guid: f3c8eb2bfc89c7b4380fd4d8755450bf,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345966606219818830, guid: f3c8eb2bfc89c7b4380fd4d8755450bf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.3125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345966606219818830, guid: f3c8eb2bfc89c7b4380fd4d8755450bf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.11300001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3c8eb2bfc89c7b4380fd4d8755450bf, type: 3}
 --- !u!1001 &146007832
@@ -5764,7 +5794,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637845993}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -10083,8 +10113,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.43049502, y: 1, z: 0.39116266}
+  m_Center: {x: 0.0102319755, y: 0, z: 0.014213752}
 --- !u!1 &1480805725
 GameObject:
   m_ObjectHideFlags: 0
@@ -13099,7 +13129,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009486899}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

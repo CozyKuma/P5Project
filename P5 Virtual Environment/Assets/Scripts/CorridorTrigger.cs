@@ -32,6 +32,9 @@ public class CorridorTrigger : MonoBehaviour
         {
             case CorridorSystemV2.Corridor.typeOfCorridor.EXIT:
                 CorrSystem.GenerateBridge();
+                activated = true;
+                break;
+            case CorridorSystemV2.Corridor.typeOfCorridor.SIDE1:
                 roomStateController.DeactivateRoom(roomStateController.getCurrentState());
                 activated = true;
                 roomStateController.SetLevelComplete(false);

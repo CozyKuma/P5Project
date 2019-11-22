@@ -70,6 +70,9 @@ public class RoomStateController : MonoBehaviour
                 CorridorSystem.GenerateInitialSetup();
                 CorridorRoofHole.SetActive(true);
             }
+        } else if (Input.GetKeyDown("x"))
+        {
+            levelComplete = true;
         }
     }
 
