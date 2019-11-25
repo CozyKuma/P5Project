@@ -30,8 +30,9 @@ public class QuadrantCalc : MonoBehaviour
         {
             this.quadrantObject = quadrantObject;
             Renderer render = this.quadrantObject.GetComponent<Renderer>();
-            this.centerPos = render.bounds.center;
-            this.size = render.bounds.size;
+            var bounds = render.bounds;
+            this.centerPos = bounds.center;
+            this.size = bounds.size;
             this.id = counter;
             counter += 1;
             allQuadrants.Add(this);
@@ -45,8 +46,7 @@ public class QuadrantCalc : MonoBehaviour
         public static void FindAllChildren()
         {
             Transform parentComponent = parentHolder.GetComponent<Transform>();
-            Transform[] allChildren;
-            allChildren = parentComponent.GetComponentsInChildren<Transform>(true);
+            var allChildren = parentComponent.GetComponentsInChildren<Transform>(true);
             foreach (Transform child in allChildren)
             {
                 if (child != allChildren[0])
@@ -56,11 +56,11 @@ public class QuadrantCalc : MonoBehaviour
             }
         }
 
-        public static int WithinWhichQuadrant(GameObject PhysObject)
+        public static int WithinWhichQuadrant(GameObject physObject)
         {
             foreach(Quadrant quad in allQuadrants)
             {
-                Renderer physObjectRend = PhysObject.GetComponent<Renderer>();
+                Renderer physObjectRend = physObject.GetComponent<Renderer>();
                 Vector3 physObjectPos = physObjectRend.bounds.center;
                 if (physObjectPos.x < (quad.centerPos.x + quad.size.x/2) && physObjectPos.x > (quad.centerPos.x - quad.size.x/2) && physObjectPos.z < (quad.centerPos.z + quad.size.z/2) && physObjectPos.z > (quad.centerPos.z - quad.size.z/2))
                 {
