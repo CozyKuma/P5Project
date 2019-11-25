@@ -7,10 +7,13 @@ public class light_Position_check : MonoBehaviour
 {
     
     public GameObject destinationLight;
+    public GameObject winText;
     public float range;
     public float maxAngleDiviation;
     
     Vector3 destinationLightPosition;
+
+    private AudioSource audioData;
     
     private Vector3 destinationLightRotation;
     private Vector3 rotationMax;
@@ -23,6 +26,8 @@ public class light_Position_check : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioData = GetComponent<AudioSource>();
+        
         if (CorrSystem == null)
         {
             CorrSystem = GameObject.Find("CorridorSystem");
@@ -51,7 +56,13 @@ public class light_Position_check : MonoBehaviour
 
     private void completePuzzle()
     {
+        Debug.Log("shadow won");
+        if (!solved)
+        {
+            audioData.Play();
+        }
         solved = true;
+        winText.SetActive(true);
         roomStateController.SetLevelComplete(true);
     }
 }
