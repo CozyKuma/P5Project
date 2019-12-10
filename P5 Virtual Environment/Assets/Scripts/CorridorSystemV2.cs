@@ -281,6 +281,7 @@ public class CorridorSystemV2 : MonoBehaviour
             {
                 tempObject.transform.localPosition = new Vector3(center.x, _triggerPrefab.transform.localScale.y / 2, center.z);
             }
+            tempObject.transform.localScale = new Vector3(0.66f, 3.75f, 0.66f);
             triggerObject = tempObject;
             CorridorTrigger triggerComponent = tempObject.GetComponent<CorridorTrigger>();
             triggerComponent.activated = false;
@@ -504,10 +505,6 @@ public class CorridorSystemV2 : MonoBehaviour
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE1);
         Corridor.DestroyAllOfType(Corridor.typeOfCorridor.SIDE2);
         listOfPoints.Add(exitCorner);
-        
-        Debug.Log(Corridor.GetLastPosition());
-        Debug.Log(listOfPoints[listOfPoints.Count - 1]);
-        Debug.Log(physObjQuad);
 
         // From corner to bridge start
         if (physObjQuad == 1 || physObjQuad == 2)

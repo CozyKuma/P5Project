@@ -10,11 +10,11 @@ public class RoomStateController : MonoBehaviour
     
     public enum State { RoomState0, RoomState1, RoomState2, RoomState3 }
 
-    public CorridorSystemV2 CorridorSystem;
+    private CorridorSystemV2 CorridorSystem;
     private QuadrantCalc QuandrantCalculator;
 
-    public static State oldState = State.RoomState0;
-    public static State currentState = State.RoomState0;
+    private static State oldState = State.RoomState0;
+    private static State currentState = State.RoomState0;
 
     [SerializeField]
     public GameObject room0, room1, room2, room3;
