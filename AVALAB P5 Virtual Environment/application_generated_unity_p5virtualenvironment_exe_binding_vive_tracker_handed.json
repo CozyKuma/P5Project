@@ -1,0 +1,12 @@
+{
+   "action_manifest_version" : 0,
+   "alias_info" : {},
+   "app_key" : "application.generated.unity.p5virtualenvironment.exe",
+   "bindings" : {},
+   "category" : "steamvr_input",
+   "controller_type" : "vive_tracker_handed",
+   "description" : "",
+   "name" : "My P5 Virtual Environment [Testing] configuration for Vive Tracker in Hand",
+   "options" : {},
+   "simulated_actions" : []
+}

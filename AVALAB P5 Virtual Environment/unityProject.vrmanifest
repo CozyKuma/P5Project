@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.p5virtualenvironment.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\Avalab A\\Desktop\\P5Project-Mathias-branch\\P5 Virtual Environment\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "P5 Virtual Environment [Testing]"
+        }
+      }
+    }
+  ]
+}
